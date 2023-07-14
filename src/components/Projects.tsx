@@ -15,5 +15,28 @@ export default function Projects() {
 }
 
 function ProjectCard() {
-  return <div className="project-card">Project here</div>;
+  return (
+    <div className="project-card">
+      <div className="thumbnail">img</div>
+      <div className="description">
+        <h3>Tittle</h3>
+        <p>
+          Lorem ipsum dolor sit amet. <br />
+          Lorem ipsum dolor sit amet. <br />
+          Lorem ipsum dolor sit amet. <br />
+          Lorem ipsum dolor sit amet. <br />
+          Lorem ipsum dolor sit amet. <br />
+          Lorem ipsum dolor sit amet. <br />
+        </p>
+        <ul className="technologies">
+          <li>React</li>
+          <li>SCSS</li>
+        </ul>
+        <ul className="links">
+          <li>Code</li>
+          <li>Live Demo</li>
+        </ul>
+      </div>
+    </div>
+  );
 }

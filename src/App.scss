@@ -17,11 +17,16 @@ body * {
   position: relative;
   background-color: aqua;
 
-  .container {
+  & > .container {
     width: min-content;
     border: 1px solid black;
     background-color: aquamarine;
   }
+}
+
+#root > .container > section {
+  border: 2px rgb(0, 26, 255) solid;
+  padding: 4rem 2rem;
 }
 
 header {
@@ -49,7 +54,6 @@ header {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  padding: 4rem 2rem;
 
   .container {
     display: flex;
@@ -58,14 +62,28 @@ header {
 
     .sub-container {
       display: flex;
+      //this controlles the width of the page
+      //along with the img
       min-width: max-content;
+      ///
       flex-direction: column;
       justify-content: space-between;
+      gap: 1rem;
+    }
+    .links {
+      display: flex;
       gap: 1rem;
     }
   }
   #skills {
     border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    ul {
+      display: flex;
+      gap: 1rem;
+      border: 1px solid black;
+    }
   }
 }
 
@@ -77,28 +95,69 @@ header {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 4rem 2rem;
+
   .container {
     border: 1px solid black;
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 2rem;
+    .project-card {
+      border: 1px solid black;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1rem;
+
+      .thumbnail {
+        flex: 1.1;
+        flex-basis: 0;
+        border: 1px solid black;
+      }
+      .description {
+        flex: 1;
+        flex-basis: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        .technologies,
+        .links {
+          display: flex;
+          gap: 1rem;
+        }
+      }
+    }
   }
 }
 
 #contact {
-  padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   form {
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
+    margin-top: 2rem;
+    display: grid;
+    align-self: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     gap: 1rem;
+    width: 100%;
+    border: 1px solid black;
+    button {
+      grid-column: 1/3;
+    }
+    textarea {
+      grid-column: 1/3;
+    }
+    input,
+    textarea {
+      padding: 0.5rem;
+    }
   }
 }
 
 #footer {
   border: 1px solid black;
+  width: 100%;
+  background-color: beige;
 }

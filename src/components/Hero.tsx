@@ -12,7 +12,11 @@ export default function Hero() {
             quod laudantium repellendus tenetur necessitatibus <br />
             adipisci modi = deserunt dignissimos!
           </p>
-          <p>Social</p>
+          <ul className="links">
+            <li>Github</li>
+            <li>Linkedin</li>
+            <li>Resume</li>
+          </ul>
         </div>
         <img className="avatar" src="https://i.pravatar.cc/300" />
       </div>
@@ -22,5 +26,18 @@ export default function Hero() {
 }
 
 function Skills() {
-  return <section id="skills">skills</section>;
+  return (
+    <section id="skills">
+      <h3>skills</h3>
+      <ul>
+        <li>Git</li>
+        <li>React</li>
+        <li>TS</li>
+        <li>MD</li>
+        <li>SCSS</li>
+        <li>Jest</li>
+        <li>Express</li>
+      </ul>
+    </section>
+  );
 }
