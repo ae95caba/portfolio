@@ -1,22 +1,39 @@
 import React from "react";
-
-export default function Projects() {
+import { useState, useEffect, useRef } from "react";
+export default function Projects({
+  switchToVertical,
+}: {
+  switchToVertical: boolean;
+}) {
   return (
     <section id="projects">
-      <h2>Portfolio</h2>
-      <h3>Each project is a unique piece of development</h3>
-      <div className="container">
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+      <div className="background"></div>
+      <div className="content">
+        <h2>Portfolio</h2>
+        <h3>Each project is a unique piece of development</h3>
+        <div className="container">
+          <ProjectCard
+            flexDirectionValue={switchToVertical ? "column" : "row"}
+          />
+          <ProjectCard
+            flexDirectionValue={switchToVertical ? "column" : "row"}
+          />
+          <ProjectCard
+            flexDirectionValue={switchToVertical ? "column" : "row"}
+          />
+        </div>
       </div>
     </section>
   );
 }
 
-function ProjectCard() {
+function ProjectCard({
+  flexDirectionValue,
+}: {
+  flexDirectionValue: "column" | "row";
+}) {
   return (
-    <div className="project-card">
+    <div className="project-card" style={{ flexDirection: flexDirectionValue }}>
       <div className="thumbnail">img</div>
       <div className="description">
         <h3>Tittle</h3>
