@@ -12,33 +12,35 @@ export default function Projects({
         <h2>Portfolio</h2>
         <h3>Each project is a unique piece of development</h3>
         <div className="container">
-          <ProjectCard
-            flexDirectionValue={switchToVertical ? "column" : "row"}
-          />
-          <ProjectCard
-            flexDirectionValue={switchToVertical ? "column" : "row"}
-          />
-          <ProjectCard
-            flexDirectionValue={switchToVertical ? "column" : "row"}
-          />
+          <ProjectCard switchToVertical={switchToVertical} />
+          <ProjectCard switchToVertical={switchToVertical} />
+          <ProjectCard switchToVertical={switchToVertical} />
         </div>
       </div>
     </section>
   );
 }
 
-function ProjectCard({
-  flexDirectionValue,
-}: {
-  flexDirectionValue: "column" | "row";
-}) {
+function ProjectCard({ switchToVertical }: { switchToVertical: boolean }) {
+  const [styles, setStyles] = useState({});
+
+  useEffect(() => {
+    console.log("useEffect");
+    if (switchToVertical) {
+      setStyles({ gridTemplateRows: "4fr 5fr" });
+      console.log("use effect true");
+    } else {
+      setStyles({ gridTemplateColumns: "5fr 4fr" });
+      console.log("use effect false");
+    }
+  }, [switchToVertical]);
+
   return (
-    <div className="project-card" style={{ flexDirection: flexDirectionValue }}>
+    <div className="project-card" style={styles}>
       <div className="thumbnail">img</div>
       <div className="description">
         <h3>Tittle</h3>
         <p>
-          Lorem ipsum dolor sit amet. <br />
           Lorem ipsum dolor sit amet. <br />
           Lorem ipsum dolor sit amet. <br />
           Lorem ipsum dolor sit amet. <br />
