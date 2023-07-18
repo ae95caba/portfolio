@@ -2,18 +2,26 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 export default function Hero({
   switchToVertical,
+  heroContainerRef,
 }: {
   switchToVertical: boolean;
+  heroContainerRef: React.RefObject<HTMLDivElement>;
 }) {
+  const [styles, setStyles] = useState({});
+
   useEffect(() => {
-    const container = document.querySelector(
-      "#hero > .content > .container"
-    ) as HTMLElement;
     if (switchToVertical) {
-      console.log(container);
-      container ? (container.style.flexDirection = "column") : null;
+      setStyles({
+        container: {
+          flexDirection: "column",
+          alignItems: "center",
+        },
+        links: {},
+        p: { textAlign: "center" },
+        subContainer: { alignItems: "center" },
+      });
     } else {
-      container ? (container.style.flexDirection = "row") : null;
+      setStyles({ container: { flexDirection: "row" } });
     }
   }, [switchToVertical]);
 
@@ -21,10 +29,14 @@ export default function Hero({
     <section id="hero">
       <div className="background"></div>
       <div className="content">
-        <div className="container">
-          <div className="sub-container">
+        <div
+          className="container"
+          ref={heroContainerRef}
+          style={styles.container}
+        >
+          <div className="sub-container" style={styles.subContainer}>
             <h1>Full Stack Dev</h1>
-            <p>
+            <p style={styles.p}>
               AboutMe Lorem, ipsum dolor sit amet consectetur <br />
               adipisicing elit. elit. Repudiandae sequi quaerat <br />
               quod laudantium repellendus tenetur necessitatibus <br />
@@ -36,7 +48,12 @@ export default function Hero({
               <li>Resume</li>
             </ul>
           </div>
-          <img className="avatar" src="https://i.pravatar.cc/300" />
+          <img
+            className="avatar"
+            src="https://i.pravatar.cc/300"
+            width="300px"
+            height="300px"
+          />
         </div>
         <Skills />
       </div>

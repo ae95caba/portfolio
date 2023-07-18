@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+
 import "./App.scss";
-import Navbar from "./components/Navbar";
+
 import Header from "./components/Header";
 
 import Footer from "./components/Footer";
@@ -12,28 +11,33 @@ import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 
 function App() {
-  const [count, setCount] = useState(0);
   const [switchToVertical, setSwitchToVertical] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  const heroContainerRef = useRef<HTMLDivElement>(null);
+
+  const mainContainerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const checkDivSizes = () => {
-      const mainContainerDiv = document.getElementById("maincontainer");
       const rootDiv = document.getElementById("root");
 
-      const mainContainerDivWidth =
-        mainContainerDiv?.getBoundingClientRect()?.width;
-      const rootDivWidth = rootDiv?.getBoundingClientRect()?.width;
-      const container = document.querySelector(
-        "#hero > .content > .container"
-      ) as HTMLElement;
+      const mainContainer = mainContainerRef.current!;
+      const heroContainer = heroContainerRef.current!;
+
+      const mainContainerWidth = mainContainer.getBoundingClientRect().width;
+      const rootDivWidth = rootDiv!.getBoundingClientRect().width;
+
       if (
-        mainContainerDivWidth > rootDivWidth &&
-        container.style.flexDirection === "row"
+        mainContainerWidth > rootDivWidth &&
+        heroContainer.style.flexDirection !== "column"
       ) {
         setSwitchToVertical(true);
-        console.log("same size");
-      }
-
-      if (rootDivWidth >= mainContainerDivWidth * 2) {
+      } else if (
+        rootDivWidth >= mainContainerWidth * 2 &&
+        heroContainer.style.flexDirection !== "row"
+      ) {
+        console.log("first");
         setSwitchToVertical(false);
       }
     };
@@ -45,13 +49,56 @@ function App() {
     return () => {
       window.removeEventListener("resize", checkDivSizes); // Clean up the event listener on component unmount
     };
+  }, [heroContainerRef]);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
+
+  //if on mobile device (res <=480px)
+
+  useEffect(() => {
+    function initialScaleValue() {
+      const viewportMetaTag = document.querySelector(
+        'meta[name="viewport"]'
+      ) as HTMLMetaElement;
+      const content = viewportMetaTag.content;
+      const matchResult = content.match(/\d+(\.\d+)?/);
+      const numericPart = matchResult !== null ? matchResult[0] : "";
+
+      return +numericPart;
+    }
+
+    function changeInitialScaleValue(number: number) {
+      const viewportMetaTag = document.querySelector(
+        'meta[name="viewport"]'
+      ) as HTMLMetaElement;
+      const newContent = viewportMetaTag.content.replace(
+        String(initialScaleValue()),
+        String(number)
+      );
+
+      viewportMetaTag?.setAttribute("content", newContent);
+    }
+
+    const deviceWidth = width * initialScaleValue();
+    if (deviceWidth <= 480 && initialScaleValue() !== 0.7) {
+      console.log(`this is a phone with a res of ${deviceWidth}`);
+      changeInitialScaleValue(0.7);
+    } else if (deviceWidth > 480 && initialScaleValue() !== 1) {
+      changeInitialScaleValue(1);
+    }
+  }, [width]);
 
   return (
     <>
       <Header />
-      <div className="container" id="maincontainer">
-        <Hero switchToVertical={switchToVertical} />
+      <Debugger switchToVertical={switchToVertical} />
+      <div className="container" ref={mainContainerRef}>
+        <Hero
+          heroContainerRef={heroContainerRef}
+          switchToVertical={switchToVertical}
+        />
         <AboutMe />
         <Projects switchToVertical={switchToVertical} />
         <Contact />
@@ -59,6 +106,47 @@ function App() {
 
       <Footer />
     </>
+  );
+}
+
+function Debugger({ switchToVertical }: { switchToVertical: boolean }) {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [initialScaleValue, setInitialScaleValue] = useState(1);
+  const [deviceWidth, setDeviceWidth] = useState(0);
+  const [mainContainerWidth, setMainContainerWidth] = useState(0);
+  const [rootWidth, setRootWith] = useState(0);
+
+  useEffect(() => {}, []);
+
+  useEffect(() => {
+    setDeviceWidth(width * getInitialScaleValue());
+  }, [width]);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+  }, []);
+
+  function getInitialScaleValue() {
+    const viewportMetaTag = document.querySelector(
+      'meta[name="viewport"]'
+    ) as HTMLMetaElement;
+    const content = viewportMetaTag.content;
+    const matchResult = content.match(/\d+(\.\d+)?/);
+    const numericPart = matchResult !== null ? matchResult[0] : "";
+
+    return +numericPart;
+  }
+  useEffect(() => {
+    setInitialScaleValue(getInitialScaleValue());
+  }, [width]);
+
+  return (
+    <div id="debugger">
+      <div> w is :{width}</div>
+      <div>i s is : {initialScaleValue}</div>
+      <div>d w is : {deviceWidth}</div>
+      <div>stw is : {switchToVertical ? "true" : "false"}</div>
+    </div>
   );
 }
 

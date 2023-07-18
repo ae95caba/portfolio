@@ -25,13 +25,10 @@ function ProjectCard({ switchToVertical }: { switchToVertical: boolean }) {
   const [styles, setStyles] = useState({});
 
   useEffect(() => {
-    console.log("useEffect");
     if (switchToVertical) {
       setStyles({ gridTemplateRows: "4fr 5fr" });
-      console.log("use effect true");
     } else {
       setStyles({ gridTemplateColumns: "5fr 4fr" });
-      console.log("use effect false");
     }
   }, [switchToVertical]);
 
