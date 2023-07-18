@@ -23,7 +23,7 @@ body * {
 }
 
 #root > .container > section {
-  padding: 6rem 0rem;
+  padding: clamp(3rem, 6vw, 6rem) 0rem;
 }
 
 #debugger {

@@ -13,13 +13,15 @@ import Projects from "./components/Projects";
 function App() {
   const [switchToVertical, setSwitchToVertical] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeigth] = useState(window.innerHeight);
 
   const heroContainerRef = useRef<HTMLDivElement>(null);
 
   const mainContainerRef = useRef<HTMLDivElement>(null);
 
+  //add listener to window resize to switch state
   useEffect(() => {
-    const checkDivSizes = () => {
+    const toogleSwitToVerticalIfNeeded = () => {
       const rootDiv = document.getElementById("root");
 
       const mainContainer = mainContainerRef.current!;
@@ -34,7 +36,7 @@ function App() {
       ) {
         setSwitchToVertical(true);
       } else if (
-        rootDivWidth >= mainContainerWidth * 2 &&
+        rootDivWidth >= mainContainerWidth * 1.9 &&
         heroContainer.style.flexDirection !== "row"
       ) {
         console.log("first");
@@ -42,21 +44,24 @@ function App() {
       }
     };
 
-    checkDivSizes(); // Check sizes initially
+    toogleSwitToVerticalIfNeeded(); // Check sizes initially
 
-    window.addEventListener("resize", checkDivSizes); // Add resize event listener
+    window.addEventListener("resize", toogleSwitToVerticalIfNeeded); // Add resize event listener
 
     return () => {
-      window.removeEventListener("resize", checkDivSizes); // Clean up the event listener on component unmount
+      window.removeEventListener("resize", toogleSwitToVerticalIfNeeded); // Clean up the event listener on component unmount
     };
-  }, [heroContainerRef]);
+  }, []);
 
+  //add listener to window resize to set state
   useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
 
-  //if on mobile device (res <=480px)
-
+  useEffect(() => {
+    window.addEventListener("resize", () => setHeigth(window.innerHeight));
+  }, []);
+  //changes the initial scale value if nedded
   useEffect(() => {
     function initialScaleValue() {
       const viewportMetaTag = document.querySelector(
@@ -81,12 +86,16 @@ function App() {
       viewportMetaTag?.setAttribute("content", newContent);
     }
 
+    const deviceHeigth = height * initialScaleValue();
     const deviceWidth = width * initialScaleValue();
-    if (deviceWidth <= 480 && initialScaleValue() !== 0.7) {
-      console.log(`this is a phone with a res of ${deviceWidth}`);
-      changeInitialScaleValue(0.7);
-    } else if (deviceWidth > 480 && initialScaleValue() !== 1) {
-      changeInitialScaleValue(1);
+    const isPhone = deviceWidth <= 480 || deviceHeigth <= 480; //add height to check if is phone
+    const isZoomedOut = initialScaleValue() !== 1;
+    const zoomOut = () => changeInitialScaleValue(0.7);
+    const revertZoom = () => changeInitialScaleValue(1);
+    if (isPhone && !isZoomedOut) {
+      zoomOut();
+    } else if (!isPhone && isZoomedOut) {
+      revertZoom();
     }
   }, [width]);
 
@@ -113,10 +122,6 @@ function Debugger({ switchToVertical }: { switchToVertical: boolean }) {
   const [width, setWidth] = useState(window.innerWidth);
   const [initialScaleValue, setInitialScaleValue] = useState(1);
   const [deviceWidth, setDeviceWidth] = useState(0);
-  const [mainContainerWidth, setMainContainerWidth] = useState(0);
-  const [rootWidth, setRootWith] = useState(0);
-
-  useEffect(() => {}, []);
 
   useEffect(() => {
     setDeviceWidth(width * getInitialScaleValue());
