@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import skills from "../assets/skills/skills.jsx";
+import links from "../assets/links/links.jsx";
+
 export default function Hero({
   switchToVertical,
   heroContainerRef,
@@ -45,17 +47,14 @@ export default function Hero({
               adipisci modi = deserunt dignissimos!
             </p>
             <ul className="links">
-              <li>Github</li>
-              <li>Linkedin</li>
-              <li>Resume</li>
+              {links.map((link) => (
+                <li>
+                  <img src={link} />
+                </li>
+              ))}
             </ul>
           </div>
-          <img
-            className="avatar"
-            src="https://i.pravatar.cc/300"
-            width="300px"
-            height="300px"
-          />
+          <div className="avatar"> </div>
         </div>
         <Skills switchToVertical={switchToVertical} />
       </div>
@@ -77,13 +76,25 @@ function Skills({ switchToVertical }: { switchToVertical: boolean }) {
   return (
     <section id="skills" style={styles}>
       <h3>Skills</h3>
-      <ul>
-        {skills.map((skill) => (
-          <li key={skill}>
-            <img src={skill} />
-          </li>
-        ))}
-      </ul>
+      <div className="slider">
+        <div className="caret"></div>
+        <ul>
+          {Object.keys(skills).map((skill, index) => (
+            <li key={`${skill}-A`}>
+              <img src={skills[skill]} alt={skill} />
+              <div className="tooltip">{skill}</div>
+            </li>
+          ))}
+        </ul>
+        <ul>
+          {Object.keys(skills).map((skill, index) => (
+            <li key={`${skill}-B`}>
+              <img src={skills[skill]} alt={skill} />
+              <div className="tooltip">{skill}</div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }
