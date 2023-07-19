@@ -19,7 +19,7 @@ function App() {
 
   const mainContainerRef = useRef<HTMLDivElement>(null);
 
-  //add listener to window resize to switch state
+  //add listener to window-resize to trigger state switch
   useEffect(() => {
     const toogleSwitToVerticalIfNeeded = () => {
       const rootDiv = document.getElementById("root");
@@ -53,11 +53,11 @@ function App() {
     };
   }, []);
 
-  //add listener to window resize to set state
+  //add listener to window resize to set width
   useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
-
+  //add listener to window resize to set heigth
   useEffect(() => {
     window.addEventListener("resize", () => setHeigth(window.innerHeight));
   }, []);
@@ -90,7 +90,7 @@ function App() {
     const deviceWidth = width * initialScaleValue();
     const isPhone = deviceWidth <= 480 || deviceHeigth <= 480; //add height to check if is phone
     const isZoomedOut = initialScaleValue() !== 1;
-    const zoomOut = () => changeInitialScaleValue(0.7);
+    const zoomOut = () => changeInitialScaleValue(0.8);
     const revertZoom = () => changeInitialScaleValue(1);
     if (isPhone && !isZoomedOut) {
       zoomOut();

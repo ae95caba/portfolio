@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
+import skills from "../assets/skills/skills.jsx";
 export default function Hero({
   switchToVertical,
   heroContainerRef,
@@ -7,6 +8,7 @@ export default function Hero({
   switchToVertical: boolean;
   heroContainerRef: React.RefObject<HTMLDivElement>;
 }) {
+  console.log(skills);
   const [styles, setStyles] = useState({});
 
   useEffect(() => {
@@ -55,24 +57,32 @@ export default function Hero({
             height="300px"
           />
         </div>
-        <Skills />
+        <Skills switchToVertical={switchToVertical} />
       </div>
     </section>
   );
 }
 
-function Skills() {
+function Skills({ switchToVertical }: { switchToVertical: boolean }) {
+  const [styles, setStyles] = useState({});
+
+  useEffect(() => {
+    if (switchToVertical) {
+      setStyles({ flexDirection: "column" });
+    } else {
+      setStyles({ flexDirection: "row" });
+    }
+  }, [switchToVertical]);
+
   return (
-    <section id="skills">
-      <h3>skills</h3>
+    <section id="skills" style={styles}>
+      <h3>Skills</h3>
       <ul>
-        <li>Git</li>
-        <li>React</li>
-        <li>TS</li>
-        <li>MD</li>
-        <li>SCSS</li>
-        <li>Jest</li>
-        <li>Express</li>
+        {skills.map((skill) => (
+          <li key={skill}>
+            <img src={skill} />
+          </li>
+        ))}
       </ul>
     </section>
   );
