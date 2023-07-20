@@ -47,9 +47,15 @@ export default function Hero({
               adipisci modi = deserunt dignissimos!
             </p>
             <ul className="links">
-              {links.map((link) => (
+              {Object.keys(links).map((service, index) => (
                 <li>
-                  <img src={link} />
+                  <a
+                    href={links[service].link}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <img src={links[service].imgPath} />
+                  </a>
                 </li>
               ))}
             </ul>
@@ -67,7 +73,7 @@ function Skills({ switchToVertical }: { switchToVertical: boolean }) {
 
   useEffect(() => {
     if (switchToVertical) {
-      setStyles({ flexDirection: "column" });
+      setStyles({ flexDirection: "column", alignItems: "center" });
     } else {
       setStyles({ flexDirection: "row" });
     }
@@ -75,9 +81,9 @@ function Skills({ switchToVertical }: { switchToVertical: boolean }) {
 
   return (
     <section id="skills" style={styles}>
-      <h3>Skills</h3>
       <div className="slider">
         <div className="caret"></div>
+        <div className="box">Skills</div>
         <ul>
           {Object.keys(skills).map((skill, index) => (
             <li key={`${skill}-A`}>

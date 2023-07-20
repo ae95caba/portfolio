@@ -13,7 +13,8 @@ function Navbar() {
   return (
     <nav>
       <ul>
-        <li>Header</li>
+        <li>Hero</li>
+        <li>About</li>
         <li>Projects</li>
         <li>Contact</li>
       </ul>
