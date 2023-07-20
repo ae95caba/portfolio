@@ -30,7 +30,6 @@ body * {
 }
 
 #debugger {
-  display: none;
   position: absolute;
   top: 100px;
   z-index: 999;
@@ -38,6 +37,8 @@ body * {
 }
 
 header {
+  container-type: inline-size;
+  container-name: header;
   width: 100%;
 
   top: 0px;
@@ -54,6 +55,9 @@ header {
       display: flex;
       flex-direction: row;
       gap: 3rem;
+    }
+    .burger-menu {
+      display: none;
     }
   }
 }
@@ -174,7 +178,7 @@ header {
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 3rem;
+          width: 4rem;
           aspect-ratio: 1/1;
           background-color: black;
         }
@@ -212,6 +216,7 @@ header {
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 1px 1px 1px grey;
             position: relative;
 
             img {
@@ -336,12 +341,31 @@ header {
   background-color: beige;
 }
 
-@media (max-width: 480px) and (orientation: portrait) {
+@media (orientation: portrait) {
   /* CSS rules for phones in portrait orientation */
   /* Add your styles here */
+  header {
+    nav {
+      ul {
+        // display: none;
+      }
+      .burger-menu {
+        // display: flex;
+      }
+    }
+  }
 }
 
 @media (max-width: 1000px) and (orientation: landscape) {
   /* CSS rules for phones in landscape orientation */
   /* Add your styles here */
+}
+
+@container header (max-width: 500px) {
+  ul {
+    display: none !important;
+  }
+  .burger-menu {
+    display: flex !important;
+  }
 }

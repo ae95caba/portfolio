@@ -18,6 +18,7 @@ function Navbar() {
         <li>Projects</li>
         <li>Contact</li>
       </ul>
+      <button className="burger-menu">3</button>
     </nav>
   );
 }

@@ -31,7 +31,7 @@ function App() {
       const rootDivWidth = rootDiv!.getBoundingClientRect().width;
 
       if (
-        mainContainerWidth > rootDivWidth &&
+        mainContainerWidth + 20 > rootDivWidth &&
         heroContainer.style.flexDirection !== "column"
       ) {
         setSwitchToVertical(true);
@@ -88,13 +88,13 @@ function App() {
 
     const deviceHeigth = height * initialScaleValue();
     const deviceWidth = width * initialScaleValue();
-    const isPhone = deviceWidth <= 480 || deviceHeigth <= 480; //add height to check if is phone
+    const isPhoneRes = deviceWidth <= 480 || deviceHeigth <= 480; //add height to check if is phone
     const isZoomedOut = initialScaleValue() !== 1;
     const zoomOut = () => changeInitialScaleValue(0.8);
     const revertZoom = () => changeInitialScaleValue(1);
-    if (isPhone && !isZoomedOut) {
+    if (isPhoneRes && !isZoomedOut) {
       zoomOut();
-    } else if (!isPhone && isZoomedOut) {
+    } else if (!isPhoneRes && isZoomedOut) {
       revertZoom();
     }
   }, [width]);
