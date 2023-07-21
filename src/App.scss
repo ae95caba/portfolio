@@ -1,5 +1,6 @@
 $primary-color: #f7f7f7;
 $secondary-color: #ffffff;
+$fixed-width: 1000px;
 
 body,
 body * {
@@ -11,11 +12,14 @@ body * {
 }
 
 #root {
+  container-type: inline-size;
+  container-name: root;
+  --switch-to-vertical: false;
   display: flex;
 
   flex-direction: column;
   overflow: clip;
-  justify-content: center;
+
   align-items: center;
   width: 100%;
   position: relative;
@@ -30,6 +34,7 @@ body * {
 }
 
 #debugger {
+  display: none;
   position: absolute;
   top: 100px;
   z-index: 999;
@@ -50,6 +55,16 @@ header {
   padding: 1rem 3rem;
   background-color: $primary-color;
 
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.514);
+  }
+
   nav {
     ul {
       display: flex;
@@ -58,6 +73,28 @@ header {
     }
     .burger-menu {
       display: none;
+    }
+  }
+
+  .sidebar {
+    padding: 3rem 5rem;
+    position: fixed;
+
+    top: 0;
+    right: 0;
+    z-index: 999;
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    font-weight: 900;
+    background-color: white;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      li {
+        text-align: center;
+      }
     }
   }
 }
@@ -96,8 +133,9 @@ header {
         display: flex;
         //this controlles the width of the page
         //along with the img
+        //because these require the most min-width of all the section elements
         min-width: max-content;
-        ///
+        /////////////////////
         flex-direction: column;
         justify-content: space-between;
 
@@ -155,7 +193,7 @@ header {
         width: 20rem;
         overflow-x: clip;
         display: flex;
-        gap: 1rem;
+
         position: relative;
         @keyframes flicker {
           0% {
@@ -206,10 +244,9 @@ header {
         ul {
           display: flex;
           animation: 15s slide infinite linear;
-          justify-content: flex-start;
 
-          gap: 1rem;
           li {
+            margin-left: 1rem;
             background-color: $primary-color;
             border-radius: 50%;
             padding: 0.6rem;
@@ -344,16 +381,6 @@ header {
 @media (orientation: portrait) {
   /* CSS rules for phones in portrait orientation */
   /* Add your styles here */
-  header {
-    nav {
-      ul {
-        // display: none;
-      }
-      .burger-menu {
-        // display: flex;
-      }
-    }
-  }
 }
 
 @media (max-width: 1000px) and (orientation: landscape) {
@@ -362,10 +389,68 @@ header {
 }
 
 @container header (max-width: 500px) {
-  ul {
+  header > nav > ul {
     display: none !important;
   }
   .burger-menu {
     display: flex !important;
   }
+  .sidebar {
+    display: flex !important;
+  }
 }
+
+@container header (min-width: 501px) {
+  .sidebar {
+    display: none !important;
+  }
+  .sidebar-overlay {
+    display: none !important;
+  }
+}
+
+@container root  style(--switch-to-vertical:true) {
+  #hero {
+    p {
+      text-align: center;
+    }
+    .content {
+      .container {
+        flex-direction: column !important;
+        align-items: center !important;
+        .sub-container {
+          align-items: center !important;
+        }
+      }
+      #skills {
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+    }
+  }
+
+  #projects {
+    .project-card {
+      grid-template-rows: 4fr 5fr !important;
+    }
+  }
+}
+
+/* @container root  style(--switch-to-vertical:false) {
+  #hero {
+    .content {
+      .container {
+        flex-direction: row !important;
+      }
+      #skills {
+        flex-direction: row !important;
+      }
+    }
+  }
+
+  #projects {
+    .project-card {
+      grid-template-columns: 5fr 4fr !important;
+    }
+  }
+} */

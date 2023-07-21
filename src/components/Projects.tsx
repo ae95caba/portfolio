@@ -1,10 +1,6 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-export default function Projects({
-  switchToVertical,
-}: {
-  switchToVertical: boolean;
-}) {
+export default function Projects() {
   return (
     <section id="projects">
       <div className="background"></div>
@@ -12,28 +8,18 @@ export default function Projects({
         <h2>Portfolio</h2>
         <h3>Each project is a unique piece of development</h3>
         <div className="container">
-          <ProjectCard switchToVertical={switchToVertical} />
-          <ProjectCard switchToVertical={switchToVertical} />
-          <ProjectCard switchToVertical={switchToVertical} />
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
         </div>
       </div>
     </section>
   );
 }
 
-function ProjectCard({ switchToVertical }: { switchToVertical: boolean }) {
-  const [styles, setStyles] = useState({});
-
-  useEffect(() => {
-    if (switchToVertical) {
-      setStyles({ gridTemplateRows: "4fr 5fr" });
-    } else {
-      setStyles({ gridTemplateColumns: "5fr 4fr" });
-    }
-  }, [switchToVertical]);
-
+function ProjectCard() {
   return (
-    <div className="project-card" style={styles}>
+    <div className="project-card">
       <div className="thumbnail">img</div>
       <div className="description">
         <h3>Tittle</h3>

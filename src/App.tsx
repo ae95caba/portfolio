@@ -11,7 +11,6 @@ import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 
 function App() {
-  const [switchToVertical, setSwitchToVertical] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeigth] = useState(window.innerHeight);
 
@@ -22,25 +21,30 @@ function App() {
   //add listener to window-resize to trigger state switch
   useEffect(() => {
     const toogleSwitToVerticalIfNeeded = () => {
-      const rootDiv = document.getElementById("root");
-
+      const rootDiv = document.getElementById("root")!;
       const mainContainer = mainContainerRef.current!;
-      const heroContainer = heroContainerRef.current!;
 
       const mainContainerWidth = mainContainer.getBoundingClientRect().width;
-      const rootDivWidth = rootDiv!.getBoundingClientRect().width;
+      const rootDivWidth = rootDiv.getBoundingClientRect().width;
+
+      // Get the computed value of the custom property
+      const computedStyle = getComputedStyle(rootDiv);
+      const switchToVerticalValue = computedStyle.getPropertyValue(
+        "--switch-to-vertical"
+      );
 
       if (
         mainContainerWidth + 20 > rootDivWidth &&
-        heroContainer.style.flexDirection !== "column"
+        switchToVerticalValue === "false"
       ) {
-        setSwitchToVertical(true);
+        // setSwitchToVertical(true);
+        rootDiv.style.setProperty("--switch-to-vertical", "true");
       } else if (
         rootDivWidth >= mainContainerWidth * 1.9 &&
-        heroContainer.style.flexDirection !== "row"
+        switchToVerticalValue === "true"
       ) {
-        console.log("first");
-        setSwitchToVertical(false);
+        // setSwitchToVertical(false);
+        rootDiv.style.setProperty("--switch-to-vertical", "false");
       }
     };
 
@@ -102,14 +106,12 @@ function App() {
   return (
     <>
       <Header />
-      <Debugger switchToVertical={switchToVertical} />
+
+      <Debugger />
       <div className="container" ref={mainContainerRef}>
-        <Hero
-          heroContainerRef={heroContainerRef}
-          switchToVertical={switchToVertical}
-        />
+        <Hero heroContainerRef={heroContainerRef} />
         <AboutMe />
-        <Projects switchToVertical={switchToVertical} />
+        <Projects />
         <Contact />
       </div>
 
@@ -118,7 +120,7 @@ function App() {
   );
 }
 
-function Debugger({ switchToVertical }: { switchToVertical: boolean }) {
+function Debugger() {
   const [width, setWidth] = useState(window.innerWidth);
   const [initialScaleValue, setInitialScaleValue] = useState(1);
   const [deviceWidth, setDeviceWidth] = useState(0);
@@ -150,7 +152,6 @@ function Debugger({ switchToVertical }: { switchToVertical: boolean }) {
       <div> w is :{width}</div>
       <div>i s is : {initialScaleValue}</div>
       <div>d w is : {deviceWidth}</div>
-      <div>stw is : {switchToVertical ? "true" : "false"}</div>
     </div>
   );
 }
