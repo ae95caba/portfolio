@@ -8,8 +8,6 @@ export default function Hero({
 }: {
   heroContainerRef: React.RefObject<HTMLDivElement>;
 }) {
-  console.log(skills);
-
   return (
     <section id="hero">
       <div className="background"></div>

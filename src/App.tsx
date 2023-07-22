@@ -13,19 +13,35 @@ import Projects from "./components/Projects";
 function App() {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeigth] = useState(window.innerHeight);
+  const [mainCW, setmainCW] = useState(0);
+  const [rootW, setRootW] = useState(0);
+  const [logs, setLogs] = useState([""]);
 
   const heroContainerRef = useRef<HTMLDivElement>(null);
 
   const mainContainerRef = useRef<HTMLDivElement>(null);
 
   //add listener to window-resize to trigger state switch
+  //root 514/maincw 416
+  //rootw 514/ maincw 700
+
+  useEffect(() => {
+    setLogs((prev) => [...prev, `rootW:${rootW}`]);
+  }, [rootW]);
+  useEffect(() => {
+    setLogs((prev) => [...prev, ` mainCW:${mainCW}`]);
+  }, [mainCW]);
+
   useEffect(() => {
     const toogleSwitToVerticalIfNeeded = () => {
       const rootDiv = document.getElementById("root")!;
-      const mainContainer = mainContainerRef.current!;
-
-      const mainContainerWidth = mainContainer.getBoundingClientRect().width;
       const rootDivWidth = rootDiv.getBoundingClientRect().width;
+      setRootW(rootDivWidth);
+
+      const mainContainer = mainContainerRef.current!;
+      const mainContainerWidth = mainContainer.getBoundingClientRect().width;
+
+      setmainCW(mainContainerWidth);
 
       // Get the computed value of the custom property
       const computedStyle = getComputedStyle(rootDiv);
@@ -34,16 +50,43 @@ function App() {
       );
 
       if (
-        mainContainerWidth + 20 > rootDivWidth &&
+        mainContainerWidth + 20 >= rootDivWidth &&
         switchToVerticalValue === "false"
       ) {
-        // setSwitchToVertical(true);
         rootDiv.style.setProperty("--switch-to-vertical", "true");
       } else if (
-        rootDivWidth >= mainContainerWidth * 1.9 &&
+        rootDivWidth > mainContainerWidth * 2 &&
         switchToVerticalValue === "true"
       ) {
-        // setSwitchToVertical(false);
+        rootDiv.style.setProperty("--switch-to-vertical", "false");
+      }
+      console.log(mainContainerWidth);
+      setmainCW(mainContainerWidth);
+    };
+
+    toogleSwitToVerticalIfNeeded(); // Check sizes initially
+
+    window.addEventListener("resize", toogleSwitToVerticalIfNeeded); // Add resize event listener
+
+    return () => {
+      window.removeEventListener("resize", toogleSwitToVerticalIfNeeded); // Clean up the event listener on component unmount
+    };
+  }, []);
+
+  /*  useEffect(() => {
+    const mainContainer = mainContainerRef.current!;
+    const mainContainerWidth = mainContainer.getBoundingClientRect().width;
+    alert(mainContainerWidth);
+    setmainCW(mainContainerWidth);
+    const toogleSwitToVerticalIfNeeded = () => {
+      alert(`callback mainCW is :${mainContainerWidth}`);
+      const rootDiv = document.getElementById("root")!;
+      const rootDivWidth = rootDiv.getBoundingClientRect().width;
+      setRootW(rootDivWidth);
+
+      if (mainContainerWidth + 20 > rootDivWidth) {
+        rootDiv.style.setProperty("--switch-to-vertical", "true");
+      } else if (mainContainerWidth + 20 <= rootDivWidth) {
         rootDiv.style.setProperty("--switch-to-vertical", "false");
       }
     };
@@ -55,7 +98,7 @@ function App() {
     return () => {
       window.removeEventListener("resize", toogleSwitToVerticalIfNeeded); // Clean up the event listener on component unmount
     };
-  }, []);
+  }, []); */
 
   //add listener to window resize to set width
   useEffect(() => {
@@ -107,7 +150,7 @@ function App() {
     <>
       <Header />
 
-      <Debugger />
+      <Debugger mainCW={mainCW} rootW={rootW} logs={logs} />
       <div className="container" ref={mainContainerRef}>
         <Hero heroContainerRef={heroContainerRef} />
         <AboutMe />
@@ -120,7 +163,15 @@ function App() {
   );
 }
 
-function Debugger() {
+function Debugger({
+  mainCW,
+  rootW,
+  logs,
+}: {
+  mainCW: number;
+  rootW: number;
+  logs: [];
+}) {
   const [width, setWidth] = useState(window.innerWidth);
   const [initialScaleValue, setInitialScaleValue] = useState(1);
   const [deviceWidth, setDeviceWidth] = useState(0);
@@ -152,6 +203,11 @@ function Debugger() {
       <div> w is :{width}</div>
       <div>i s is : {initialScaleValue}</div>
       <div>d w is : {deviceWidth}</div>
+      <div>main C W :{mainCW}</div>
+      <div>root W:{rootW}</div>
+      {logs.map((log) => (
+        <div>${log}</div>
+      ))}
     </div>
   );
 }

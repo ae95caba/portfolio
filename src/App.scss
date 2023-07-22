@@ -38,7 +38,8 @@ body * {
   position: absolute;
   top: 100px;
   z-index: 999;
-  background-color: rgba(38, 122, 196, 0.527);
+  background-color: rgb(38, 122, 196);
+  font-weight: 900;
 }
 
 header {
@@ -303,7 +304,7 @@ header {
         border-radius: 1rem;
         box-shadow: 3px 3px 3px rgb(156, 156, 156);
         display: grid;
-
+        grid-template-columns: 5fr 4fr;
         padding: 1rem;
         gap: 1rem;
 
@@ -432,6 +433,7 @@ header {
   #projects {
     .project-card {
       grid-template-rows: 4fr 5fr !important;
+      grid-template-columns: 1fr !important;
     }
   }
 }
