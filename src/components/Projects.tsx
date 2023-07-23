@@ -1,5 +1,8 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
+import projectsArr from "../assets/projects/projects";
+import githubLogo from "../assets/links/github.svg";
+import newWindow from "../assets/newWindow.svg";
 export default function Projects() {
   return (
     <section id="projects">
@@ -8,35 +11,58 @@ export default function Projects() {
         <h2>Portfolio</h2>
         <h3>Each project is a unique piece of development</h3>
         <div className="container">
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
+          {projectsArr.map((projectObj) => {
+            return <ProjectCard projectObj={projectObj} />;
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-function ProjectCard() {
+interface Project {
+  name: string;
+  description: string;
+  getDescriptionArr: () => string[];
+  thumbnail: string;
+  repository: string;
+  live: string;
+  technologies: Array<string>;
+}
+
+function ProjectCard({ projectObj }: { projectObj: Project }) {
   return (
     <div className="project-card">
-      <div className="thumbnail">img</div>
+      <div className="thumbnail">
+        <img src={projectObj.thumbnail} />
+      </div>
       <div className="description">
-        <h3>Tittle</h3>
+        <h3>{projectObj.name}</h3>
         <p>
-          Lorem ipsum dolor sit amet. <br />
-          Lorem ipsum dolor sit amet. <br />
-          Lorem ipsum dolor sit amet. <br />
-          Lorem ipsum dolor sit amet. <br />
-          Lorem ipsum dolor sit amet. <br />
+          {projectObj.getDescriptionArr().map((chunk) => (
+            <>
+              {chunk}
+              <br />
+            </>
+          ))}
         </p>
         <ul className="technologies">
-          <li>React</li>
-          <li>SCSS</li>
+          {projectObj.technologies.map((technology) => (
+            <li>{technology}</li>
+          ))}
         </ul>
         <ul className="links">
-          <li>Code</li>
-          <li>Live Demo</li>
+          <a href={projectObj.repository} rel="noreferrer" target="_blank">
+            <li>
+              <span>Code </span>
+              <img src={githubLogo} alt="" />
+            </li>
+          </a>
+          <a href={projectObj.live} rel="noreferrer" target="_blank">
+            <li>
+              <span>Live Demo</span> <img src={newWindow} alt="" />
+            </li>
+          </a>
         </ul>
       </div>
     </div>

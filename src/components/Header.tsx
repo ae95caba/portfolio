@@ -1,17 +1,25 @@
 import React from "react";
 import { useState } from "react";
-
+import logo from "../assets/logo.png";
 export default function Header() {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <header>
-      <div className="logo">ANdre</div>
+      <div className="logo">André Espinoza</div>
       <nav>
         <ul>
-          <li>Hero</li>
-          <li>About</li>
-          <li>Projects</li>
-          <li>Contact</li>
+          <a href="#hero">
+            <li>Hero</li>
+          </a>
+          <a href="#about">
+            <li>About</li>
+          </a>
+          <a href="#projects">
+            <li>Projects</li>
+          </a>
+          <a href="#contact">
+            <li>Contact</li>
+          </a>
         </ul>
         <button onClick={() => setShowSidebar(true)} className="burger-menu">
           3
@@ -35,10 +43,18 @@ function Sidebar() {
     <div className="sidebar">
       <nav>
         <ul>
-          <li>Hero</li>
-          <li>About</li>
-          <li>Projects</li>
-          <li>Contact</li>
+          <a href="#hero">
+            <li>Hero</li>
+          </a>
+          <a href="#about">
+            <li>About</li>
+          </a>
+          <a href="#projects">
+            <li>Projects</li>
+          </a>
+          <a href="#contact">
+            <li>Contact</li>
+          </a>
         </ul>
       </nav>
     </div>
