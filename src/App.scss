@@ -273,15 +273,16 @@ header {
             img {
               width: 2rem;
               height: 2rem;
-              // vertical-align: middle;
-              /* Additional styling for the image if necessary */
             }
 
             .tooltip {
               position: absolute;
               visibility: hidden;
               z-index: 99;
-              top: -1.5rem;
+              top: -20%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+
               font-weight: 700;
               color: grey;
             }
@@ -296,13 +297,43 @@ header {
 }
 
 #about {
-  display: none;
+  // display: none;
+  position: relative;
+  .background {
+    background-color: $primary-color;
+  }
+  .content {
+    position: relative;
+    z-index: 10;
+    .container {
+      .subcontainer {
+        height: 20rem;
+        border: 1px solid black;
+        position: relative;
+        .card {
+          border: 1px solid black;
+          position: absolute;
+
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: max-content;
+
+          height: 12rem;
+          width: 12rem;
+        }
+        .card-0 {
+          margin-left: auto;
+        }
+      }
+    }
+  }
 }
 
 #projects {
   position: relative;
   .background {
-    background-color: $primary-color;
+    background-color: $secondary-color;
   }
   .content {
     display: flex;
@@ -372,7 +403,7 @@ header {
   position: relative;
 
   .background {
-    background-color: $secondary-color;
+    background-color: $primary-color;
   }
   .content {
     display: flex;
@@ -479,22 +510,3 @@ header {
     }
   }
 }
-
-/* @container root  style(--switch-to-vertical:false) {
-  #hero {
-    .content {
-      .container {
-        flex-direction: row !important;
-      }
-      #skills {
-        flex-direction: row !important;
-      }
-    }
-  }
-
-  #projects {
-    .project-card {
-      grid-template-columns: 5fr 4fr !important;
-    }
-  }
-} */
