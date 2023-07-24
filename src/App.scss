@@ -40,6 +40,13 @@ a {
 
 #root > .container > section {
   padding: clamp(3rem, 6vw, 6rem) 0rem;
+  & > .content {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 2.5rem;
+    z-index: 10;
+  }
 }
 
 #debugger {
@@ -132,11 +139,6 @@ header {
     background-color: $secondary-color;
   }
   .content {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    gap: 4rem;
-    z-index: 10;
     .container {
       display: flex;
 
@@ -303,27 +305,47 @@ header {
     background-color: $primary-color;
   }
   .content {
-    position: relative;
-    z-index: 10;
     .container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
       .subcontainer {
-        height: 20rem;
-        border: 1px solid black;
-        position: relative;
-        .card {
-          border: 1px solid black;
-          position: absolute;
-
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: max-content;
-
-          height: 12rem;
-          width: 12rem;
+        display: flex;
+        align-items: center;
+        padding: 0rem 2rem;
+        & > div {
+          width: fit-content;
+          background-color: $secondary-color;
+          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+          border-radius: 1rem;
+          overflow: clip;
         }
-        .card-0 {
-          margin-left: auto;
+        .card {
+          height: 12rem;
+          width: 16rem;
+          display: flex;
+          flex-direction: column;
+
+          color: #213547;
+          text-align: left;
+
+          position: relative;
+
+          h4 {
+            padding: 1rem;
+            background-color: #213547;
+            color: white;
+          }
+          p {
+            padding: 0.5rem 0.7rem;
+          }
+          img {
+            width: 2.5rem;
+            position: absolute;
+            right: 5%;
+            top: 5%;
+            filter: invert(0);
+          }
         }
       }
     }
@@ -336,11 +358,6 @@ header {
     background-color: $secondary-color;
   }
   .content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    position: relative;
-    z-index: 10;
     .container {
       display: flex;
       flex-direction: column;
@@ -406,11 +423,6 @@ header {
     background-color: $primary-color;
   }
   .content {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    gap: 1rem;
-    z-index: 10;
   }
   form {
     margin-top: 2rem;

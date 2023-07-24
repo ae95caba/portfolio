@@ -1,23 +1,28 @@
 import React from "react";
+import Reveal from "./Reveal";
+import checkMark from "../assets/check-mark.svg";
 
 export default function AboutMe() {
   const goals = [
     {
       title: "Responsive",
       description:
-        "fasdj asd asdf af fkljlkasdf asd  asdf  asdf   oaisdjfklajasdf ",
+        "The design should be responsive and visually appealing across a wide range of devices, from low-resolution phones to high-resolution monitors / TVs.",
     },
     {
-      title: "Easy to mantain",
-      description: "fasdj asd fkljl af asdkasdf asdf oaisdjfklajasdf",
+      title: "Easy to maintain",
+      description:
+        "The code should be written with a focus on readability, clarity, and modularity to ensure ease of debugging, comprehension, and extensibility.",
     },
     {
       title: "Use cutting edge tech",
-      description: "fasdj asdfkl jl asdf kasdf  asdf oaisdjfklajasdf",
+      description:
+        "The projects should be made leveraging the latest advancements in technology to achieve a significant competitive advantage.",
     },
     {
-      title: "Good looking",
-      description: "fasdj asdfkl jl asdf kasdf  adfs oaisdj fkla jasdf",
+      title: "Visually appealing",
+      description:
+        "The design should prioritize UX (User Experience) and strive for a polished UI (User Interface).",
     },
   ];
   return (
@@ -28,9 +33,9 @@ export default function AboutMe() {
         <h3>My goal is to make apps that are</h3>
         <div className="container">
           {goals.map((goal, index) => (
-            <div className="subcontainer">
-              <Card goal={goal} index={index} />
-            </div>
+            <Reveal direction={index % 2 === 0 ? "left" : "right"}>
+              <Card goal={goal} />
+            </Reveal>
           ))}
         </div>
       </div>
@@ -43,11 +48,12 @@ interface Goal {
   description: string;
 }
 
-function Card({ goal, index }: { goal: Goal; index: number }) {
+function Card({ goal }: { goal: Goal }) {
   return (
-    <div className={`card card-${index % 2 === 0 ? "left" : "right"} `}>
-      <div className="tittle">{goal.title}</div>
-      <div className="description">{goal.description}</div>
+    <div className={`card`}>
+      <img src={checkMark} alt="check mark" />
+      <h4 className="tittle">{goal.title}</h4>
+      <p className="description">{goal.description}</p>
     </div>
   );
 }
