@@ -15,13 +15,12 @@ export default function Hero({
       <div className="content">
         <div className="container" ref={heroContainerRef}>
           <div className="sub-container">
-            <h1>Full Stack Dev</h1>
+            <h1>MERN Dev</h1>
             <img className="stroke" src={stroke} />
             <p>
-              AboutMe Lorem, ipsum dolor sit amet consectetur <br />
-              adipisicing elit. elit. Repudiandae sequi quaerat <br />
-              quod laudantium repellendus tenetur necessitatibus <br />
-              adipisci modi = deserunt dignissimos!
+              Hi, I'm Andre Espinoza. A trainee <br />
+              Full Stack Developer. <br />
+              Welcome to my site. <br />
             </p>
             <ul className="links">
               {Object.keys(links).map((service, index) => (
