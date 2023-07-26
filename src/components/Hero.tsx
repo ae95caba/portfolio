@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import skills from "../assets/skills/skills.jsx";
 import links from "../assets/links/links.jsx";
+import stroke from "../assets/stroke.png";
 
 export default function Hero({
   heroContainerRef,
@@ -15,6 +16,7 @@ export default function Hero({
         <div className="container" ref={heroContainerRef}>
           <div className="sub-container">
             <h1>Full Stack Dev</h1>
+            <img className="stroke" src={stroke} />
             <p>
               AboutMe Lorem, ipsum dolor sit amet consectetur <br />
               adipisicing elit. elit. Repudiandae sequi quaerat <br />
@@ -47,7 +49,6 @@ function Skills() {
   return (
     <section id="skills">
       <div className="slider">
-        <div className="caret"></div>
         <div className="box">Skills</div>
         <ul>
           {Object.keys(skills).map((skill, index) => (
