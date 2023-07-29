@@ -114,7 +114,7 @@ header {
   }
   .logo {
     font-size: 1rem;
-    font-weight: 700;
+    text-shadow: 5px 5px 4px rgba(0, 0, 0, 1);
   }
 
   nav {
@@ -141,22 +141,12 @@ header {
     z-index: 999;
     background-color: rgba(0, 0, 0, 0.514);
   }
-
   .sidebar {
-    padding: 3rem 5rem;
-
-    width: 40vw;
-
-    justify-content: center;
-    font-weight: 900;
     background-color: white;
+    padding: 2rem 4rem;
     ul {
       display: flex;
       flex-direction: column;
-      gap: 3rem;
-      li {
-        text-align: center;
-      }
     }
   }
 }
@@ -332,8 +322,6 @@ header {
               top: -20%;
               left: 50%;
               transform: translate(-50%, -50%);
-
-              font-weight: 700;
             }
           }
           li:hover .tooltip {
@@ -399,8 +387,7 @@ header {
             position: relative;
             z-index: 2;
             width: fit-content;
-            font-family: "Dancing Script", cursive;
-            font-weight: 700;
+
             font-size: 1.5rem;
 
             &::before {
@@ -584,9 +571,9 @@ header {
 }
 
 @container header (min-width: 601px) {
-  /* .sidebar {
+  .sidebar {
     display: none !important;
-  } */
+  }
   .sidebar-overlay {
     display: none !important;
   }
