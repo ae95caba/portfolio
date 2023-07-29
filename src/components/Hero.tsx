@@ -2,7 +2,8 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import skills from "../assets/skills/skills.jsx";
 import links from "../assets/links/links.jsx";
-import stroke from "../assets/stroke.png";
+import stroke from "../assets/strokes/stroke.svg";
+import wavingHand from "../assets/waving-hand.png";
 
 export default function Hero({
   heroContainerRef,
@@ -18,9 +19,12 @@ export default function Hero({
             <h1>MERN Dev</h1>
             <img className="stroke" src={stroke} />
             <p>
-              Hi, I'm Andre Espinoza. A trainee <br />
-              Full Stack Developer. <br />
+              Hi, I'm Andre Espinoza. <br />A trainee Full Stack Dev.
+              <br />
               Welcome to my site. <br />
+              <span>
+                <img src={wavingHand} alt="waving hand" />
+              </span>
             </p>
             <ul className="links">
               {Object.keys(links).map((service, index) => (

@@ -34,7 +34,7 @@ class Project {
 const project1 = new Project(
   "Dulce Tentacion",
   "This is a online store for a real bussiness. It has user authentication and a shopping cart ",
-  new URL("./dulce-tentacion.jpg", import.meta.url).href,
+  new URL("./thumbnail1.png", import.meta.url).href,
   ["ReactJS", "SCSS", "Firebase"],
   "https://github.com/ae95caba/Project-shopping-cart",
   "https://dulce-tentacion-mp.netlify.app/"
@@ -43,7 +43,7 @@ const project1 = new Project(
 const project2 = new Project(
   "Dulce Tentacion",
   "This is a online store for a real bussiness. It has user authentication and a shopping cart ",
-  "",
+  new URL("./thumbnail2.jpg", import.meta.url).href,
   ["ReactJS", "SCSS", "Firebase"],
   "https://github.com/ae95caba/Project-shopping-cart",
   "https://dulce-tentacion-mp.netlify.app/"

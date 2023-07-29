@@ -1,8 +1,8 @@
 import React from "react";
 import Reveal from "./Reveal";
 import checkMark from "../assets/check-mark.svg";
-import cornerStroke from "../assets/corner-stroke.png";
-import bottomStroke from "../assets/bottom-stroke.png";
+import cornerStroke from "../assets/strokes/corner-stroke.svg";
+import bottomStroke from "../assets/strokes/bottom-stroke.svg";
 
 export default function AboutMe() {
   const goals = [
@@ -59,7 +59,7 @@ function Card({ goal }: { goal: Goal }) {
         <h4 className="tittle">{goal.title}</h4>
       </div>
       <p className="description">{goal.description}</p>
-      <img className="bottom-stroke" src={bottomStroke} />
+      <img className="bottom-stroke" src={bottomStroke} alt="" />
     </div>
   );
 }
