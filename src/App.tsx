@@ -55,7 +55,7 @@ function App() {
       ) {
         rootDiv.style.setProperty("--switch-to-vertical", "true");
       } else if (
-        rootDivWidth > mainContainerWidth * 2 &&
+        rootDivWidth > mainContainerWidth * 1.7 &&
         switchToVerticalValue === "true"
       ) {
         rootDiv.style.setProperty("--switch-to-vertical", "false");

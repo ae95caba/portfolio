@@ -87,9 +87,27 @@ header {
   position: sticky;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   padding: 1rem 3rem;
   background-color: $primary-color;
+
+  svg {
+    path {
+      stroke: black;
+    }
+  }
+
+  .burger-menu {
+    display: none;
+    width: 3rem;
+    padding: 0rem;
+    border: 0px;
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
 
   li:hover {
     color: #d51313;
@@ -97,6 +115,21 @@ header {
   .logo {
     font-size: 1rem;
     font-weight: 700;
+  }
+
+  nav {
+    ul {
+      display: flex;
+      flex-direction: row;
+      gap: 3rem;
+    }
+  }
+  .sidebarcontainer {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    z-index: 999;
   }
 
   .sidebar-overlay {
@@ -109,26 +142,11 @@ header {
     background-color: rgba(0, 0, 0, 0.514);
   }
 
-  nav {
-    ul {
-      display: flex;
-      flex-direction: row;
-      gap: 3rem;
-    }
-    .burger-menu {
-      display: none;
-    }
-  }
-
   .sidebar {
     padding: 3rem 5rem;
-    position: fixed;
 
-    top: 0;
-    right: 0;
-    z-index: 999;
     width: 40vw;
-    display: flex;
+
     justify-content: center;
     font-weight: 900;
     background-color: white;
@@ -552,21 +570,21 @@ header {
 }
 
 @container header (max-width: 600px) {
-  header > nav > ul {
+  header > nav {
     display: none !important;
   }
   .burger-menu {
     display: flex !important;
   }
-  .sidebar {
+  /*   .sidebar {
     display: flex !important;
-  }
+  } */
 }
 
 @container header (min-width: 601px) {
-  .sidebar {
+  /* .sidebar {
     display: none !important;
-  }
+  } */
   .sidebar-overlay {
     display: none !important;
   }

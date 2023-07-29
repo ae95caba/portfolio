@@ -1,12 +1,31 @@
 import React from "react";
-import { useState } from "react";
-import logo from "../assets/logo.png";
+import { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import animationData from "../assets/hambuger-menu.json";
 
 export default function Header() {
   const [showSidebar, setShowSidebar] = useState(false);
+  const hambugerAnimationRef = useRef<LottieRefCurrentProps>(null);
+
   return (
     <header>
       <div className="logo">André Espinoza</div>
+
+      <button onClick={() => setShowSidebar(true)} className="burger-menu">
+        <Lottie
+          lottieRef={hambugerAnimationRef}
+          animationData={animationData}
+          autoplay={false}
+          className="asf"
+          loop={0}
+          onClick={() => {
+            console.log("will play");
+            hambugerAnimationRef.current?.playSegments([0, 10], true);
+            console.log(hambugerAnimationRef.current?.getDuration(true));
+          }}
+        />
+      </button>
       <nav>
         <ul>
           <a href="#hero">
@@ -22,19 +41,29 @@ export default function Header() {
             <li>Contact</li>
           </a>
         </ul>
-        <button onClick={() => setShowSidebar(true)} className="burger-menu">
-          3
-        </button>
       </nav>
-      {showSidebar ? (
+      {showSidebar && (
         <div
           className="sidebar-overlay"
-          onClick={() => setShowSidebar(false)}
+          onClick={() => {
+            hambugerAnimationRef.current?.playSegments([10, 50], false);
+            setShowSidebar(false);
+          }}
         ></div>
-      ) : (
-        ""
       )}
-      {showSidebar ? <Sidebar /> : ""}
+      <AnimatePresence>
+        {showSidebar && (
+          <motion.div
+            className="sidebarcontainer"
+            initial={{ opacity: 0, x: -200 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -200 }}
+            transition={{ duration: 0.5, delay: 0 }}
+          >
+            <Sidebar />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
