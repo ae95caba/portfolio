@@ -17,12 +17,9 @@ export default function Header() {
           lottieRef={hambugerAnimationRef}
           animationData={animationData}
           autoplay={false}
-          className="asf"
           loop={0}
           onClick={() => {
-            console.log("will play");
             hambugerAnimationRef.current?.playSegments([0, 10], true);
-            console.log(hambugerAnimationRef.current?.getDuration(true));
           }}
         />
       </button>

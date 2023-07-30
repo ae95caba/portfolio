@@ -1,7 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 
-import "./App.scss";
-
 import Header from "./components/Header";
 
 import Footer from "./components/Footer";
@@ -55,7 +53,7 @@ function App() {
       ) {
         rootDiv.style.setProperty("--switch-to-vertical", "true");
       } else if (
-        rootDivWidth > mainContainerWidth * 1.7 &&
+        rootDivWidth > mainContainerWidth * 1.6 &&
         switchToVerticalValue === "true"
       ) {
         rootDiv.style.setProperty("--switch-to-vertical", "false");
