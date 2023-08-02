@@ -5,10 +5,6 @@ $secondary-color: #ffffff;
 $third-color: #213547;
 $stroke-contrast: 66%;
 
-link[rel="icon"][href="/vite.svg"] {
-  width: 2px;
-}
-
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -60,17 +56,16 @@ a {
 
   & > .container {
     width: min-content;
-  }
-}
-
-#root > .container > section {
-  padding: 6rem 0rem;
-  & > .content {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    gap: 2.5rem;
-    z-index: 10;
+    & > section {
+      padding: 6rem 0rem;
+      & > .content {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 2.5rem;
+        z-index: 10;
+      }
+    }
   }
 }
 
@@ -109,21 +104,16 @@ header {
   padding: 1rem 3rem;
   background-color: $primary-color;
 
-  svg {
-    path {
-      stroke: black;
-    }
-  }
-
   .burger-menu {
     display: none;
     width: 3rem;
     padding: 0rem;
     border: 0px;
     background-color: transparent;
-    &:focus,
-    &:active {
-      outline: none;
+    svg {
+      path {
+        stroke: black;
+      }
     }
   }
 
@@ -148,6 +138,14 @@ header {
     top: 0;
     left: 0;
     z-index: 999;
+    .sidebar {
+      background-color: white;
+      padding: 2rem 4rem;
+      ul {
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
 
   .sidebar-overlay {
@@ -158,14 +156,6 @@ header {
     height: 100vh;
     z-index: 999;
     background-color: rgba(0, 0, 0, 0.514);
-  }
-  .sidebar {
-    background-color: white;
-    padding: 2rem 4rem;
-    ul {
-      display: flex;
-      flex-direction: column;
-    }
   }
 }
 
@@ -569,16 +559,6 @@ header {
   font-weight: 900;
 }
 
-@media (orientation: portrait) {
-  /* CSS rules for phones in portrait orientation */
-  /* Add your styles here */
-}
-
-@media (max-width: 1000px) and (orientation: landscape) {
-  /* CSS rules for phones in landscape orientation */
-  /* Add your styles here */
-}
-
 @container header (max-width: 600px) {
   header > nav {
     display: none !important;
@@ -586,21 +566,16 @@ header {
   .burger-menu {
     display: flex !important;
   }
-  /*   .sidebar {
-    display: flex !important;
-  } */
 }
 
 @container header (min-width: 601px) {
-  .sidebar {
-    display: none !important;
-  }
+  .sidebar,
   .sidebar-overlay {
     display: none !important;
   }
 }
 
-@container root  style(--switch-to-vertical:true) {
+@container root  /* style(--switch-to-vertical:true) */  (max-width:600px) {
   #hero {
     p {
       text-align: center;

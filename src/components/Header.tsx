@@ -67,23 +67,21 @@ export default function Header() {
 
 function Sidebar() {
   return (
-    <div className="sidebar">
-      <nav>
-        <ul>
-          <a href="#hero">
-            <li>Hero</li>
-          </a>
-          <a href="#about">
-            <li>About</li>
-          </a>
-          <a href="#projects">
-            <li>Projects</li>
-          </a>
-          <a href="#contact">
-            <li>Contact</li>
-          </a>
-        </ul>
-      </nav>
-    </div>
+    <nav className="sidebar">
+      <ul>
+        <a href="#hero">
+          <li>Hero</li>
+        </a>
+        <a href="#about">
+          <li>About</li>
+        </a>
+        <a href="#projects">
+          <li>Projects</li>
+        </a>
+        <a href="#contact">
+          <li>Contact</li>
+        </a>
+      </ul>
+    </nav>
   );
 }

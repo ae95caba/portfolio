@@ -19,130 +19,40 @@ function App() {
 
   const mainContainerRef = useRef<HTMLDivElement>(null);
 
-  //add listener to window-resize to trigger state switch
-  //root 514/maincw 416
-  //rootw 514/ maincw 700
-
-  useEffect(() => {
-    setLogs((prev) => [...prev, `rootW:${rootW}`]);
-  }, [rootW]);
-  useEffect(() => {
-    setLogs((prev) => [...prev, ` mainCW:${mainCW}`]);
-  }, [mainCW]);
-
-  useEffect(() => {
-    const toogleSwitToVerticalIfNeeded = () => {
-      const rootDiv = document.getElementById("root")!;
-      const rootDivWidth = rootDiv.getBoundingClientRect().width;
-      setRootW(rootDivWidth);
-
-      const mainContainer = mainContainerRef.current!;
-      const mainContainerWidth = mainContainer.getBoundingClientRect().width;
-
-      setmainCW(mainContainerWidth);
-
-      // Get the computed value of the custom property
-      const computedStyle = getComputedStyle(rootDiv);
-      const switchToVerticalValue = computedStyle.getPropertyValue(
-        "--switch-to-vertical"
-      );
-
-      if (
-        mainContainerWidth + 20 >= rootDivWidth &&
-        switchToVerticalValue === "false"
-      ) {
-        rootDiv.style.setProperty("--switch-to-vertical", "true");
-      } else if (
-        rootDivWidth > mainContainerWidth * 1.6 &&
-        switchToVerticalValue === "true"
-      ) {
-        rootDiv.style.setProperty("--switch-to-vertical", "false");
-      }
-      console.log(mainContainerWidth);
-      setmainCW(mainContainerWidth);
-    };
-
-    toogleSwitToVerticalIfNeeded(); // Check sizes initially
-
-    window.addEventListener("resize", toogleSwitToVerticalIfNeeded); // Add resize event listener
-
-    return () => {
-      window.removeEventListener("resize", toogleSwitToVerticalIfNeeded); // Clean up the event listener on component unmount
-    };
-  }, []);
-
-  /*  useEffect(() => {
-    const mainContainer = mainContainerRef.current!;
-    const mainContainerWidth = mainContainer.getBoundingClientRect().width;
-    alert(mainContainerWidth);
-    setmainCW(mainContainerWidth);
-    const toogleSwitToVerticalIfNeeded = () => {
-      alert(`callback mainCW is :${mainContainerWidth}`);
-      const rootDiv = document.getElementById("root")!;
-      const rootDivWidth = rootDiv.getBoundingClientRect().width;
-      setRootW(rootDivWidth);
-
-      if (mainContainerWidth + 20 > rootDivWidth) {
-        rootDiv.style.setProperty("--switch-to-vertical", "true");
-      } else if (mainContainerWidth + 20 <= rootDivWidth) {
-        rootDiv.style.setProperty("--switch-to-vertical", "false");
-      }
-    };
-
-    toogleSwitToVerticalIfNeeded(); // Check sizes initially
-
-    window.addEventListener("resize", toogleSwitToVerticalIfNeeded); // Add resize event listener
-
-    return () => {
-      window.removeEventListener("resize", toogleSwitToVerticalIfNeeded); // Clean up the event listener on component unmount
-    };
-  }, []); */
-
-  //add listener to window resize to set width
-  useEffect(() => {
-    window.addEventListener("resize", () => setWidth(window.innerWidth));
-  }, []);
-  //add listener to window resize to set heigth
-  useEffect(() => {
-    window.addEventListener("resize", () => setHeigth(window.innerHeight));
-  }, []);
   //changes the initial scale value if nedded
   useEffect(() => {
-    function initialScaleValue() {
-      const viewportMetaTag = document.querySelector(
-        'meta[name="viewport"]'
-      ) as HTMLMetaElement;
-      const content = viewportMetaTag.content;
-      const matchResult = content.match(/\d+(\.\d+)?/);
-      const numericPart = matchResult !== null ? matchResult[0] : "";
+    function handleInitialScaleValue() {
+      function setInitialScaleValue(number: number) {
+        const viewportMetaTag = document.querySelector(
+          'meta[name="viewport"]'
+        ) as HTMLMetaElement;
+        const newContent = `width=device-width, initial-scale=${number}`;
 
-      return +numericPart;
+        viewportMetaTag?.setAttribute("content", newContent);
+      }
+
+      const deviceHeight = window.screen.height;
+
+      const deviceWidth = window.screen.width;
+      const isPhone = deviceWidth <= 480 || deviceHeight <= 480;
+      const isSmallPhone = deviceWidth <= 340 || deviceHeight <= 340;
+
+      if (isSmallPhone) {
+        setInitialScaleValue(0.7);
+        //for tablets, on pc this has no effect
+      } else if (isPhone) {
+        setInitialScaleValue(0.8);
+      } else {
+        setInitialScaleValue(1);
+      }
     }
 
-    function changeInitialScaleValue(number: number) {
-      const viewportMetaTag = document.querySelector(
-        'meta[name="viewport"]'
-      ) as HTMLMetaElement;
-      const newContent = viewportMetaTag.content.replace(
-        String(initialScaleValue()),
-        String(number)
-      );
-
-      viewportMetaTag?.setAttribute("content", newContent);
-    }
-
-    const deviceHeigth = height * initialScaleValue();
-    const deviceWidth = width * initialScaleValue();
-    const isPhoneRes = deviceWidth <= 480 || deviceHeigth <= 480; //add height to check if is phone
-    const isZoomedOut = initialScaleValue() !== 1;
-    const zoomOut = () => changeInitialScaleValue(0.8);
-    const revertZoom = () => changeInitialScaleValue(1);
-    if (isPhoneRes && !isZoomedOut) {
-      zoomOut();
-    } else if (!isPhoneRes && isZoomedOut) {
-      revertZoom();
-    }
-  }, [width]);
+    handleInitialScaleValue();
+    window.addEventListener("resize", handleInitialScaleValue);
+    return () => {
+      window.removeEventListener("resize", handleInitialScaleValue); // Clean up the event listener on component unmount
+    };
+  }, []);
 
   return (
     <>
