@@ -37,11 +37,11 @@ export default function Reveal({
           visible: {
             opacity: 1,
             x: 0,
-            marginLeft: direction === "left" ? "auto" : "",
           },
         }}
         initial="hidden"
         animate={mainControls}
+        style={{ marginLeft: direction === "left" ? "auto" : "" }}
         transition={{ duration: 1.2, delay: 0.3 }}
       >
         {children}

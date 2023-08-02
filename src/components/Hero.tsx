@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import skills from "../assets/skills/skills.jsx";
-import links from "../assets/links/links.jsx";
+import skills from "../assets/skills/skills";
+import links from "../assets/links/links";
 import stroke from "../assets/strokes/stroke.svg";
 import wavingHand from "../assets/waving-hand.png";
 

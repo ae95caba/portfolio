@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+
 import projectsArr from "../assets/projects/projects";
 import githubLogo from "../assets/links/github.svg";
 import newWindow from "../assets/newWindow.svg";

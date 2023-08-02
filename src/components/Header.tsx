@@ -19,7 +19,7 @@ export default function Header() {
           autoplay={false}
           loop={0}
           onClick={() => {
-            hambugerAnimationRef.current?.playSegments([0, 10], true);
+            hambugerAnimationRef.current?.playSegments([0, 50], true);
           }}
         />
       </button>
@@ -43,7 +43,7 @@ export default function Header() {
         <div
           className="sidebar-overlay"
           onClick={() => {
-            hambugerAnimationRef.current?.playSegments([10, 50], false);
+            hambugerAnimationRef.current?.playSegments([75, 150], false);
             setShowSidebar(false);
           }}
         ></div>
