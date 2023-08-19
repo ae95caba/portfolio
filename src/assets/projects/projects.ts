@@ -34,7 +34,7 @@ class Project {
 const project1 = new Project(
   "Dulce Tentacion",
   "This is a online store for a real bussiness. It has user authentication and a shopping cart ",
-  new URL("./thumbnail1.png", import.meta.url).href,
+  new URL("./dulce-tentacion.png", import.meta.url).href,
   ["ReactJS", "SCSS", "Firebase"],
   "https://github.com/ae95caba/Project-shopping-cart",
   "https://dulce-tentacion-mp.netlify.app/"
@@ -49,6 +49,6 @@ const project2 = new Project(
   "https://dulce-tentacion-mp.netlify.app/"
 );
 
-const projectsArr = [project1, project2];
+const projectsArr = [project1, project1];
 
 export default projectsArr;

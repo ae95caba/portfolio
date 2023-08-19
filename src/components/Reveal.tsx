@@ -33,7 +33,7 @@ export default function Reveal({
     >
       <motion.div
         variants={{
-          hidden: { opacity: 0, x: direction === "left" ? 500 : -500 },
+          hidden: { opacity: 0, x: direction === "left" ? 350 : -350 },
           visible: {
             opacity: 1,
             x: 0,
@@ -42,7 +42,7 @@ export default function Reveal({
         initial="hidden"
         animate={mainControls}
         style={{ marginLeft: direction === "left" ? "auto" : "" }}
-        transition={{ duration: 1.2, delay: 0.3 }}
+        transition={{ duration: 1.5, delay: 0.3 }}
       >
         {children}
       </motion.div>

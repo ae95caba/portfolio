@@ -55,17 +55,17 @@ function ProjectCard({ projectObj }: { projectObj: Project }) {
             ))}
           </ul>
           <ul className="links">
-            <a href={projectObj.repository} rel="noreferrer" target="_blank">
-              <li>
+            <li>
+              <a href={projectObj.repository} rel="noreferrer" target="_blank">
                 <span>Code </span>
                 <img src={githubLogo} alt="" />
-              </li>
-            </a>
-            <a href={projectObj.live} rel="noreferrer" target="_blank">
-              <li>
+              </a>
+            </li>
+            <li>
+              <a href={projectObj.live} rel="noreferrer" target="_blank">
                 <span>Live Demo</span> <img src={newWindow} alt="" />
-              </li>
-            </a>
+              </a>
+            </li>
           </ul>
         </div>
       </div>

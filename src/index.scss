@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lugrasimo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 $primary-color: #f7f7f7;
 $secondary-color: #ffffff;
-
+$cool-shadow: 0 0 5px rgba(0, 0, 0, 0.502);
 $third-color: #213547;
 $stroke-contrast: 66%;
 
@@ -25,7 +26,7 @@ button {
 html {
   scroll-behavior: smooth;
   color: $third-color;
-  font-family: "Lugrasimo", cursive;
+  // font-family: "Lugrasimo", cursive;
 }
 
 * {
@@ -87,13 +88,15 @@ a {
 .bottom-stroke,
 #about .card h4::before {
   filter: contrast($stroke-contrast);
+  user-select: none;
 }
 
 header {
   container-type: inline-size;
   container-name: header;
+  box-shadow: $cool-shadow;
   width: 100%;
-
+  font-weight: 900;
   top: 0px;
   z-index: 99;
   position: sticky;
@@ -121,8 +124,8 @@ header {
     color: #d51313;
   }
   .logo {
-    font-size: 1rem;
-    text-shadow: 5px 5px 4px rgba(0, 0, 0, 1);
+    font-size: 1.2rem;
+    font-family: "Permanent Marker", cursive;
   }
 
   nav {
@@ -207,7 +210,6 @@ header {
           position: relative;
           z-index: 2;
           font-size: 3rem;
-          letter-spacing: -0.5rem;
         }
         p {
           line-height: 1.8rem;
@@ -239,7 +241,7 @@ header {
         transition: 3s;
         animation-name: changeBG;
         animation-direction: alternate-reverse;
-        animation-duration: 15s;
+        animation-duration: 10s;
         animation-fill-mode: forwards;
         animation-iteration-count: infinite;
         animation-play-state: running;
@@ -267,7 +269,7 @@ header {
         justify-content: center;
       }
       .slider {
-        width: 20rem;
+        width: 270px;
         overflow-x: clip;
         display: flex;
         border-right: $third-color 5px solid;
@@ -373,7 +375,8 @@ header {
             flex-direction: column;
 
             line-height: 1.5rem;
-            font-family: "Dancing Script", cursive;
+            //  font-family: "Dancing Script", cursive;
+            font-family: "Lugrasimo", cursive;
             text-align: left;
 
             position: relative;
@@ -398,7 +401,7 @@ header {
               z-index: 2;
               width: fit-content;
 
-              font-size: 1.5rem;
+              font-size: 1.2rem;
 
               &::before {
                 content: "";
@@ -413,7 +416,7 @@ header {
             }
             p {
               padding: 0.5rem 0.7rem;
-              font-size: 1.3rem;
+              font-size: 1rem;
             }
             .checkmark {
               width: 2.5rem;
@@ -467,14 +470,16 @@ header {
         .thumbnail {
           flex: 1.3;
           flex-basis: 0;
-
           position: relative;
           overflow: clip;
+          box-shadow: $cool-shadow;
 
           img {
-            width: 100%;
-            height: 100%;
             position: absolute;
+            max-height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
           }
         }
         .description {
@@ -488,20 +493,34 @@ header {
             font-size: 1rem;
             li {
               padding: 0.5rem;
-              box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
-              font-weight: 700;
+              // box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+              font-size: 0.85rem;
+              font-weight: 800;
             }
           }
 
-          .technologies,
-          .links {
+          .technologies {
             display: flex;
             gap: 1rem;
           }
+
           .links {
-            font-size: 1.2rem;
-            img {
-              width: 1.5rem;
+            display: flex;
+            gap: 3rem;
+
+            li {
+              a {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                img {
+                  width: 1.5rem;
+                }
+                span {
+                  height: 100%;
+                  white-space: nowrap;
+                }
+              }
             }
           }
         }
@@ -517,46 +536,64 @@ header {
     background-color: $primary-color;
   }
   .content {
-  }
-  form {
-    margin-top: 2rem;
-    display: grid;
-    align-self: center;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: min-content min-content min-content;
-    gap: 1rem;
-    width: 100%;
-
-    button {
-      grid-column: 1/3;
-
-      background-color: $third-color;
-      color: white;
+    .animation {
+      width: 8rem;
+      position: absolute;
+      right: 0%;
+      top: -15%;
+      transform: rotate(15deg);
+      svg {
+        path[fill="rgb(0,122,255)"],
+        path[fill="rgb(102,162,246)"],
+        path[fill="rgb(89,151,238)"] {
+          fill: $third-color; /* Change the fill color for this path */
+        }
+      }
     }
-    textarea {
-      grid-column: 1/3;
-      height: 5rem;
-      resize: none;
-    }
+    form {
+      margin-top: 2rem;
+      display: grid;
+      align-self: center;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: min-content min-content min-content;
+      gap: 1rem;
+      width: 100%;
 
-    input,
-    textarea,
-    select {
-      border-radius: 0.5rem;
-      padding: 0.5rem;
-      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+      button {
+        grid-column: 1/3;
+
+        background-color: $third-color;
+        color: white;
+      }
+      textarea {
+        grid-column: 1/3;
+        height: 5rem;
+        resize: none;
+      }
+
+      input,
+      textarea,
+      select {
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+      }
     }
   }
 }
 
 #footer {
+  box-shadow: $cool-shadow;
   width: 100%;
   background-color: $third-color;
-  padding: 1rem 0rem;
+  padding: 2rem 0rem;
   color: white;
   font-size: 1rem;
   text-align: center;
   font-weight: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
 @container header (max-width: 600px) {
