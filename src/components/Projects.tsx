@@ -41,14 +41,7 @@ function ProjectCard({ projectObj }: { projectObj: Project }) {
         </div>
         <div className="description">
           <h3>{projectObj.name}</h3>
-          <p>
-            {projectObj.getDescriptionArr().map((chunk) => (
-              <>
-                {chunk}
-                <br />
-              </>
-            ))}
-          </p>
+          <p>{projectObj.description}</p>
           <ul className="technologies">
             {projectObj.technologies.map((technology) => (
               <li>{technology}</li>

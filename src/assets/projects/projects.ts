@@ -21,14 +21,6 @@ class Project {
     this.repository = repository;
     this.live = live;
   }
-
-  getDescriptionArr(): Array<string> {
-    const chunks = [];
-    for (let i = 0; i < this.description.length; i += 26) {
-      chunks.push(this.description.slice(i, i + 26));
-    }
-    return chunks;
-  }
 }
 
 const project1 = new Project(
