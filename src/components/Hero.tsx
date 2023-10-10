@@ -19,7 +19,7 @@ export default function Hero({
             <h1>MERN Dev</h1>
             <img className="stroke" src={stroke} />
             <p>
-              Hi, I'm Andre Espinoza. <br />A trainee Full Stack Dev.
+              Hi, I'm Andre Espinoza. <br />A Full Stack Dev.
               <br />
               Welcome to my site. <br />
               <span>
