@@ -51,24 +51,6 @@ const project3 = new Project(
   "https://milei-jose.netlify.app/"
 );
 
-const project4 = new Project(
-  "Dulce Tentacion Admin Dashboard",
-  "I use this page to do CRUD operations on the Dulce Tentacion Client's DB",
-  new URL("./admin.svg", import.meta.url).href,
-  ["ReactJS", "SCSS", "TypeScript"],
-  "https://github.com/ae95caba/dulce-tentacion-admin",
-  "https://dulce-tentacion-admin.netlify.app/"
-);
-
-const project5 = new Project(
-  "Dulce Tentacion API",
-  "This is the REST API that powers the Dulce Tentacion Client",
-  new URL("./api.svg", import.meta.url).href,
-  ["ExpressJS", "Mongoose", "MongoDB Atlas"],
-  "https://github.com/ae95caba/dulce-tentacion-api",
-  "https://colossal-zorah-dasfg2t4gdfsgs.koyeb.app/"
-);
-
-const projectsArr = [project1, project2, project3, project4, project5];
+const projectsArr = [project1, project2, project3];
 
 export default projectsArr;
