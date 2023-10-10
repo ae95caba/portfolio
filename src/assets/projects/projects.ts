@@ -24,11 +24,12 @@ class Project {
 }
 
 const project1 = new Project(
-  "Dulce Tentacion",
-  "This is a online store for a real bussiness. It fetches the products from firebaseDb, has responsive design  and also a shopping cart ",
+  "Dulce Tentacion Client",
+  "This is a online store page for a real bussiness. It fetches data from my API and is fully responsive",
+
   new URL("./dulce-tentacion.png", import.meta.url).href,
-  ["ReactJS", "SCSS", "Firebase"],
-  "https://github.com/ae95caba/dulce-tentacion",
+  ["Gatsby", "ReactJS", "SCSS"],
+  "https://github.com/ae95caba/dulce-tentacion-gatsby",
   "https://dulce-tentacion-mp.netlify.app/"
 );
 
@@ -43,13 +44,31 @@ const project2 = new Project(
 
 const project3 = new Project(
   "Milei Marcos Paz",
-  "This is a real page I've made for a politician, I showcases a lot of text about this proposals and projects. It has a minimalisitc but yet elegant design ",
+  "It's a landing page for a politician, It showcases a lot of text about his proposals and projects. It has a minimalisitc but yet elegant design ",
   new URL("./milei-mp.png", import.meta.url).href,
   ["ReactJS", "SCSS", "TypeScript"],
   "https://github.com/ae95caba/milei-mp",
   "https://milei-jose.netlify.app/"
 );
 
-const projectsArr = [project1, project2, project3];
+const project4 = new Project(
+  "Dulce Tentacion Admin Dashboard",
+  "I use this page to do CRUD operations on the Dulce Tentacion Client's DB",
+  new URL("./admin.svg", import.meta.url).href,
+  ["ReactJS", "SCSS", "TypeScript"],
+  "https://github.com/ae95caba/dulce-tentacion-admin",
+  "https://dulce-tentacion-admin.netlify.app/"
+);
+
+const project5 = new Project(
+  "Dulce Tentacion API",
+  "This is the REST API what powers the Dulce Tentacion Client",
+  new URL("./api.svg", import.meta.url).href,
+  ["ExpressJS", "Mongoose", "MongoDB Atlas"],
+  "https://github.com/ae95caba/dulce-tentacion-api",
+  "https://colossal-zorah-dasfg2t4gdfsgs.koyeb.app/"
+);
+
+const projectsArr = [project1, project2, project3, project4, project5];
 
 export default projectsArr;
