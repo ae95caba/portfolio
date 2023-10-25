@@ -438,17 +438,22 @@ header {
     background-color: $secondary-color;
   }
   .content {
+    position: relative;
     .background-stroke {
       position: absolute;
-
-      height: 100%;
-      top: 59%;
       left: 50%;
       transform: translate(-50%, -50%);
       filter: invert(34%) sepia(87%) saturate(7492%) hue-rotate(355deg)
         brightness(85%) contrast($stroke-contrast);
     }
-
+    .background-stroke.first {
+      height: 40%;
+      top: 25%;
+    }
+    .background-stroke.second {
+      height: 40%;
+      top: 84%;
+    }
     .container {
       display: flex;
       flex-direction: column;

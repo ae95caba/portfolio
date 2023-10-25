@@ -9,7 +9,9 @@ export default function Projects() {
     <section id="projects">
       <div className="background"></div>
       <div className="content">
-        <img className="background-stroke" src={backgroundStroke} />
+        <img className="background-stroke first" src={backgroundStroke} />
+        <img className="background-stroke second" src={backgroundStroke} />
+
         <h2>Portfolio</h2>
         <h3>Each project is a unique piece of development</h3>
         <div className="container">
