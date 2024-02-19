@@ -12,12 +12,18 @@ export default function Hero() {
       <div className="content">
         <div className="container">
           <div className="sub-container">
-            <h1>MERN Dev</h1>
+            <h1>
+              Desarrollador <br />
+              Front End
+            </h1>
             <img className="stroke" src={stroke} />
             <p>
-              Hi, I'm Andre Espinoza. <br />A Full Stack Dev.
+              Hola, soy Andre Espinoza <br />
+              Uso ReactJS con Gatsby y SCSS para el Front
+              <br />y ExpressJS con Mongoose para el Back.
               <br />
-              Welcome to my site. <br />
+              Ademas tengo conocimientos basicos de <br />
+              testing con Jest y UI/UX <br /> Bienvenidos a mi pagina. <br />
               <span>
                 <img src={wavingHand} alt="waving hand" />
               </span>
