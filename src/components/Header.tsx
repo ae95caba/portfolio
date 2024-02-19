@@ -4,6 +4,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import animationData from "../assets/hambuger-menu.json";
 
+const tabs = [
+  { href: "#hero", name: "Introducción" },
+  { href: "about", name: "Sobre mi" },
+  {
+    href: "#projects",
+    name: "Proyectos",
+  },
+  {
+    href: "#contact",
+    name: "Contacto",
+  },
+];
+
 export default function Header() {
   const [showSidebar, setShowSidebar] = useState(false);
   const hambugerAnimationRef = useRef<LottieRefCurrentProps>(null);
@@ -25,18 +38,11 @@ export default function Header() {
       </button>
       <nav>
         <ul>
-          <a href="#hero">
-            <li>Hero</li>
-          </a>
-          <a href="#about">
-            <li>About</li>
-          </a>
-          <a href="#projects">
-            <li>Projects</li>
-          </a>
-          <a href="#contact">
-            <li>Contact</li>
-          </a>
+          {tabs.map((tab) => (
+            <a href={tab.href}>
+              <li>{tab.name}</li>
+            </a>
+          ))}
         </ul>
       </nav>
       {showSidebar && (
@@ -69,18 +75,11 @@ function Sidebar() {
   return (
     <nav className="sidebar">
       <ul>
-        <a href="#hero">
-          <li>Hero</li>
-        </a>
-        <a href="#about">
-          <li>About</li>
-        </a>
-        <a href="#projects">
-          <li>Projects</li>
-        </a>
-        <a href="#contact">
-          <li>Contact</li>
-        </a>
+        {tabs.map((tab) => (
+          <a href={tab.href}>
+            <li>{tab.name}</li>
+          </a>
+        ))}
       </ul>
     </nav>
   );
