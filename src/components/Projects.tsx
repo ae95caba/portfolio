@@ -38,9 +38,8 @@ function ProjectCard({ projectObj }: { projectObj: Project }) {
   return (
     <div className="subcontainer">
       <div className="project-card">
-        <div className="thumbnail">
-          <img src={projectObj.thumbnail} />
-        </div>
+        <img className="thumbnail" src={projectObj.thumbnail} />
+
         <div className="description">
           <h3>{projectObj.name}</h3>
           <p>{projectObj.description}</p>
