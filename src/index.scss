@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lugrasimo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 $primary-color: #f7f7f7;
 $secondary-color: #ffffff;
 $cool-shadow: 0 0 5px rgba(0, 0, 0, 0.502);
 $third-color: #213547;
 $stroke-contrast: 66%;
+$universal-width: 700px;
 
 :root {
   font-synthesis: none;
@@ -26,11 +27,11 @@ button {
 html {
   scroll-behavior: smooth;
   color: $third-color;
-  // font-family: "Lugrasimo", cursive;
 }
 
 * {
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -54,29 +55,23 @@ a {
   align-items: center;
   width: 100%;
   position: relative;
-
-  & > .container {
-    width: min-content;
-    & > section {
-      padding: 6rem 0rem;
-      & > .content {
-        display: flex;
-        position: relative;
-        flex-direction: column;
-        gap: 2.5rem;
-        z-index: 10;
-      }
+  main {
+    width: 100%;
+  }
+  main > section {
+    padding: 6rem 0rem;
+    display: flex;
+    justify-content: center;
+    & > .content {
+      max-width: $universal-width;
+      width: 100%;
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      gap: 2.5rem;
+      z-index: 10;
     }
   }
-}
-
-#debugger {
-  display: none;
-  position: absolute;
-  top: 100px;
-  z-index: 999;
-  background-color: rgb(38, 122, 196);
-  font-weight: 900;
 }
 
 .active {
@@ -162,24 +157,9 @@ header {
   }
 }
 
-.background {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100vw;
-
-  height: 100%;
-
-  z-index: 1;
-}
-
 #hero {
-  position: relative;
+  background-color: $secondary-color;
 
-  .background {
-    background-color: $secondary-color;
-  }
   .content {
     .container {
       display: flex;
@@ -345,12 +325,10 @@ header {
 }
 
 #about {
-  // display: none;
-  position: relative;
-  .background {
-    background-color: $primary-color;
-  }
+  background-color: $primary-color;
+
   .content {
+    padding: 0rem 1rem;
     .container {
       display: flex;
       flex-direction: column;
@@ -359,7 +337,7 @@ header {
       .subcontainer {
         display: flex;
         align-items: center;
-        padding: 0rem 2rem;
+
         & > div {
           will-change: transform opacity;
           width: fit-content;
@@ -433,10 +411,8 @@ header {
 }
 
 #projects {
-  position: relative;
-  .background {
-    background-color: $secondary-color;
-  }
+  background-color: $secondary-color;
+
   .content {
     position: relative;
     .background-stroke {
@@ -465,9 +441,10 @@ header {
         position: relative;
         border-radius: 1rem;
         box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
         background-color: $primary-color;
-        grid-template-columns: 1fr 1fr;
+
         padding: 1rem;
         gap: 1rem;
         font-family: "Courier New", "Courier", monospace;
@@ -487,23 +464,21 @@ header {
           align-items: center;
           gap: 1.5rem;
           p {
-            height: 10rem;
+            max-height: 100px;
             overflow-y: auto;
           }
           .technologies {
             font-size: 1rem;
-
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             li {
               font-weight: 900;
               padding: 0.5rem;
               // box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
               font-size: 0.85rem;
+              text-align: center;
             }
-          }
-
-          .technologies {
-            display: flex;
-            gap: 1rem;
           }
 
           .links {
@@ -532,11 +507,8 @@ header {
 }
 
 #contact {
-  position: relative;
+  background-color: $primary-color;
 
-  .background {
-    background-color: $primary-color;
-  }
   .content {
     .animation {
       width: 8rem;
@@ -659,6 +631,7 @@ header {
     }
     .project-card {
       grid-template-columns: 1fr !important;
+      grid-template-rows: 1fr 1fr !important;
     }
   }
 }

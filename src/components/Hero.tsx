@@ -5,16 +5,12 @@ import links from "../assets/links/links";
 import stroke from "../assets/strokes/stroke.svg";
 import wavingHand from "../assets/waving-hand.png";
 
-export default function Hero({
-  heroContainerRef,
-}: {
-  heroContainerRef: React.RefObject<HTMLDivElement>;
-}) {
+export default function Hero() {
   return (
     <section id="hero">
       <div className="background"></div>
       <div className="content">
-        <div className="container" ref={heroContainerRef}>
+        <div className="container">
           <div className="sub-container">
             <h1>MERN Dev</h1>
             <img className="stroke" src={stroke} />

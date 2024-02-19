@@ -36,7 +36,7 @@ const DulceTentacionClient = new Project(
 const RefrigeracionMariano = new Project(
   "Refrigeracion Mariano",
   "Es una landing page para una agencia de arreglos de aires acondicionados, sirve como template para cualquier otro tipo de landing page simple. ",
-  new URL("../../../public/portfolio.png", import.meta.url).href,
+  new URL("./refrigeracion-mariano.png", import.meta.url).href,
   ["Gatsby", "SCSS"],
   "https://github.com/ae95caba/portfolio",
   "https://andreespinozadev.netlify.app/"

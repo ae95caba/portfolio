@@ -7,24 +7,24 @@ import bottomStroke from "../assets/strokes/bottom-stroke.svg";
 export default function AboutMe() {
   const goals = [
     {
-      title: "Responsive",
+      title: "Responsivas",
       description:
-        "The design should be responsive and visually appealing across a wide range of devices, from low-resolution phones to high-resolution monitors / TVs.",
+        "El diseño debe ser responsivo y visualmente atractivo en todos los dispositivos.",
     },
     {
-      title: "Easy to maintain",
+      title: "Facil de mantener",
       description:
-        "The code should be written with a focus on readability, clarity, and modularity to ensure ease of debugging, comprehension, and extensibility.",
+        "El código debe ser escrito claridad,modularidad y legibilidad en mente, para facilitar el debugging, la comprensión y la extensibilidad.",
     },
     {
-      title: "Use cutting edge tech",
+      title: "Usar las ultimas tecnologías",
       description:
-        "The projects should be made leveraging the latest advancements in technology to achieve a significant competitive advantage.",
+        "Los proyectos deben usar las ultimas tecnologías para obtener una ventaja ante la competencia",
     },
     {
-      title: "Visually appealing",
+      title: "Atractivos visualmente",
       description:
-        "The design should prioritize UX (User Experience) and strive for a polished UI (User Interface).",
+        "El diseño debe priorizar la UX (experiencia de usuario) y apuntar a una UI (interfaz de usuario) bien pulida ",
     },
   ];
   return (
@@ -32,7 +32,7 @@ export default function AboutMe() {
       <div className="background"></div>
       <div className="content">
         <h2>About me</h2>
-        <h3>My goal is to make apps that are ...</h3>
+        <h3>My goal is to make apps that are :</h3>
         <div className="container">
           {goals.map((goal, index) => (
             <Reveal direction={index % 2 === 0 ? "left" : "right"}>
