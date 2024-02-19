@@ -65,6 +65,7 @@ a {
     & > .content {
       max-width: $universal-width;
       width: 100%;
+      padding: 0rem 1rem;
       display: flex;
       position: relative;
       flex-direction: column;
@@ -214,6 +215,7 @@ header {
 
       .avatar {
         width: 300px;
+        max-width: 100%;
         aspect-ratio: 1/1;
         border: 1px solid $third-color;
 
@@ -328,7 +330,6 @@ header {
   background-color: $primary-color;
 
   .content {
-    padding: 0rem 1rem;
     .container {
       display: flex;
       flex-direction: column;
@@ -441,8 +442,8 @@ header {
         position: relative;
         border-radius: 1rem;
         box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         background-color: $primary-color;
 
         padding: 1rem;
@@ -451,8 +452,7 @@ header {
         align-items: center;
         .thumbnail {
           box-shadow: $cool-shadow;
-
-          max-width: 100%;
+          width: 100%;
         }
 
         .description {
@@ -470,6 +470,8 @@ header {
           .technologies {
             font-size: 1rem;
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
             gap: 1rem;
             li {
@@ -527,9 +529,9 @@ header {
     form {
       margin-top: 2rem;
       display: grid;
-      align-self: center;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: min-content min-content min-content;
+      align-self: center;
+
       gap: 1rem;
       width: 100%;
 
@@ -548,6 +550,7 @@ header {
       input,
       textarea,
       select {
+        width: 100%;
         border-radius: 0.5rem;
         padding: 0.5rem;
         box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
