@@ -23,52 +23,49 @@ class Project {
   }
 }
 
-const project1 = new Project(
+const DulceTentacionClient = new Project(
   "Dulce Tentacion Client",
-  "This is a online store page for a real bussiness. It fetches data from my API and is fully responsive",
+  "Es una pagina web para un local real, tiene varios usuarios semanales. La funcion principal es gerenar un recibo con toda la informacion de relevante, ahorrandole tiempo a local y a sus clientes",
 
   new URL("./dulce-tentacion.png", import.meta.url).href,
-  ["Gatsby", "ReactJS", "SCSS"],
+  ["GatsbyJS", "SCSS", "Google Analytics"],
   "https://github.com/ae95caba/dulce-tentacion-gatsby",
   "https://dulce-tentacion-mp.netlify.app/"
 );
 
-const project2 = new Project(
-  "Portfolio",
-  "This is the code for this page. Its fully responsive on most devices. Technologies used are listed below. ",
+const RefrigeracionMariano = new Project(
+  "Refrigeracion Mariano",
+  "Es una landing page para una agencia de arreglos de aires acondicionados, sirve como template para cualquier otro tipo de landing page simple. ",
   new URL("../../../public/portfolio.png", import.meta.url).href,
-  ["ReactJS", "SCSS", "TypeScript"],
+  ["Gatsby", "SCSS"],
   "https://github.com/ae95caba/portfolio",
   "https://andreespinozadev.netlify.app/"
 );
 
-const project3 = new Project(
-  "Milei Marcos Paz",
-  "It's a landing page for a politician, It showcases a lot of text about his proposals and projects. It has a minimalisitc but yet elegant design ",
-  new URL("./milei-mp.png", import.meta.url).href,
-  ["ReactJS", "SCSS", "TypeScript"],
-  "https://github.com/ae95caba/milei-mp",
-  "https://milei-jose.netlify.app/"
-);
-
-const project4 = new Project(
+const DulceTentacionAdminDashboard = new Project(
   "Dulce Tentacion Admin Dashboard",
-  "I use this page to do CRUD operations on the Dulce Tentacion Client's DB",
+  "Desde aca se administra la API de Dulce Tentacion, ademas de poder hacer todas las operaciones CRUD (create, read,update y delete), sirve para generar imagenes con la info de la base de datos, estas se usan en los estados de la empresa. Ademas de esto, planeo agregarle una seccion donde pueda ver los clientes del ultimo ves, productos mas vendidos y otras estadisticas, todo usando whatsapp-web.js ",
   new URL("./admin.svg", import.meta.url).href,
   ["ReactJS", "SCSS", "TypeScript"],
   "https://github.com/ae95caba/dulce-tentacion-admin",
   "https://dulce-tentacion-admin.netlify.app/"
 );
 
-const project5 = new Project(
+const DulceTentacionAPI = new Project(
   "Dulce Tentacion API",
-  "This is the REST API that powers the Dulce Tentacion Client",
+  "Esta es la API que alimenta al cliente Dulce Tentacion, ademas de las tecnologias mencionadas abajo, uso JSON webtokens para el loggeo de usuarios, Helmet, bcrypt y otros para una mayor seguridad del sitio",
   new URL("./api.svg", import.meta.url).href,
   ["ExpressJS", "Mongoose", "MongoDB Atlas"],
   "https://github.com/ae95caba/dulce-tentacion-api",
   "https://colossal-zorah-dasfg2t4gdfsgs.koyeb.app/"
 );
 
-const projectsArr = [project1, project2, project3, project4, project5];
+const projectsArr = [
+  DulceTentacionClient,
+
+  DulceTentacionAdminDashboard,
+  DulceTentacionAPI,
+  RefrigeracionMariano,
+];
 
 export default projectsArr;
