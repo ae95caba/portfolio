@@ -12,9 +12,9 @@ export default function AboutMe() {
         "El diseño debe ser responsivo y visualmente atractivo en todos los dispositivos.",
     },
     {
-      title: "Facil de mantener",
+      title: "Fácil de mantener",
       description:
-        "El código debe ser escrito claridad,modularidad y legibilidad en mente, para facilitar el debugging, la comprensión y la extensibilidad.",
+        "El código debe ser escrito con claridad, modularidad y legibilidad en mente, para facilitar el debugging, la comprensión y la extensibilidad.",
     },
     {
       title: "Usar las ultimas tecnologías",

@@ -19,7 +19,7 @@ export default function Contact() {
           loop={true}
         />
         <h2>Contacto</h2>
-        <h3>No seas timido, mandame un mensaje !</h3>
+        <h3>No seas tímido, mandame un mensaje!</h3>
         <form>
           <input placeholder="Nombre" type="text" name="user_name" disabled />
           <input type="email" placeholder="Email" name="user_email" disabled />
