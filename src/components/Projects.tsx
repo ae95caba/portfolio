@@ -13,7 +13,7 @@ export default function Projects() {
         <img className="background-stroke second" src={backgroundStroke} />
 
         <h2>Portfolio</h2>
-        <h3>Each project is a unique piece of development</h3>
+        <h3>Estos son algunos de mis mejores projectos </h3>
         <div className="container">
           {projectsArr.map((projectObj) => {
             return <ProjectCard projectObj={projectObj} />;
@@ -57,7 +57,7 @@ function ProjectCard({ projectObj }: { projectObj: Project }) {
             </li>
             <li>
               <a href={projectObj.live} rel="noreferrer" target="_blank">
-                <span>Live Demo</span> <img src={newWindow} alt="" />
+                <span>Ir a ver</span> <img src={newWindow} alt="" />
               </a>
             </li>
           </ul>

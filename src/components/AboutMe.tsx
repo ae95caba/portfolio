@@ -31,8 +31,8 @@ export default function AboutMe() {
     <section id="about">
       <div className="background"></div>
       <div className="content">
-        <h2>About me</h2>
-        <h3>My goal is to make apps that are :</h3>
+        <h2>Sobre mi</h2>
+        <h3>Mi objetivo es hacer paginas que sean :</h3>
         <div className="container">
           {goals.map((goal, index) => (
             <Reveal direction={index % 2 === 0 ? "left" : "right"}>

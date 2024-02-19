@@ -18,20 +18,20 @@ export default function Contact() {
           autoplay={true}
           loop={true}
         />
-        <h2>Contact</h2>
-        <h3>Don't be shy! Hit me up!</h3>
+        <h2>Contacto</h2>
+        <h3>No seas timido, mandame un mensaje !</h3>
         <form>
-          <input placeholder="Name" type="text" name="user_name" disabled />
+          <input placeholder="Nombre" type="text" name="user_name" disabled />
           <input type="email" placeholder="Email" name="user_email" disabled />
 
-          <textarea placeholder="Message" name="message" disabled></textarea>
+          <textarea placeholder="Mensaje" name="message" disabled></textarea>
           <button
             type="button"
             onClick={() => {
               alert("function still not added, try sending an email manually");
             }}
           >
-            Send
+            Enviar
           </button>
         </form>
       </div>
