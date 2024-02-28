@@ -12,18 +12,13 @@ export default function Hero() {
       <div className="content">
         <div className="container">
           <div className="sub-container">
-            <h1>
-              Desarrollador <br />
-              Front End
-            </h1>
+            <h1>Desarrollador Front End</h1>
             <img className="stroke" src={stroke} />
             <p>
-              Hola, soy Andre Espinoza <br />
-              Uso ReactJS con Gatsby y SCSS para el Front
-              <br />y ExpressJS con Mongoose para el Back.
-              <br />
-              Ademas tengo conocimientos basicos de <br />
-              testing con Jest y UI/UX <br /> Bienvenidos a mi pagina. <br />
+              Hola, soy Andre Espinoza Uso ReactJS con Gatsby y SCSS para el
+              Front y ExpressJS con Mongoose para el Back. Ademas tengo
+              conocimientos basicos de testing con Jest y UI/UX Bienvenidos a mi
+              pagina.
               <span>
                 <img src={wavingHand} alt="waving hand" />
               </span>

@@ -38,7 +38,9 @@ function ProjectCard({ projectData }: { projectData: Project }) {
   return (
     <div className="subcontainer">
       <div className="project-card">
-        <img className="thumbnail" src={projectData.thumbnail} />
+        <div className="thumbnail">
+          <img src={projectData.thumbnail} alt="" />
+        </div>
 
         <div className="description">
           <h3>{projectData.name}</h3>
