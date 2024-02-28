@@ -1,6 +1,6 @@
 import React from "react";
 
-import projectsArr from "../assets/projects/projects";
+import projectsData from "../assets/projects/projects.json";
 import githubLogo from "../assets/links/github.svg";
 import newWindow from "../assets/newWindow.svg";
 import backgroundStroke from "../assets/strokes/background-stroke.png";
@@ -15,8 +15,8 @@ export default function Projects() {
         <h2>Portfolio</h2>
         <h3>Estos son algunos de mis mejores projectos </h3>
         <div className="container">
-          {projectsArr.map((projectObj) => {
-            return <ProjectCard projectObj={projectObj} />;
+          {projectsData.map((projectData) => {
+            return <ProjectCard projectData={projectData} />;
           })}
         </div>
       </div>
@@ -27,36 +27,36 @@ export default function Projects() {
 interface Project {
   name: string;
   description: string;
-  getDescriptionArr: () => string[];
+
   thumbnail: string;
   repository: string;
   live: string;
   technologies: Array<string>;
 }
 
-function ProjectCard({ projectObj }: { projectObj: Project }) {
+function ProjectCard({ projectData }: { projectData: Project }) {
   return (
     <div className="subcontainer">
       <div className="project-card">
-        <img className="thumbnail" src={projectObj.thumbnail} />
+        <img className="thumbnail" src={projectData.thumbnail} />
 
         <div className="description">
-          <h3>{projectObj.name}</h3>
-          <p>{projectObj.description}</p>
+          <h3>{projectData.name}</h3>
+          <p>{projectData.description}</p>
           <ul className="technologies">
-            {projectObj.technologies.map((technology) => (
+            {projectData.technologies.map((technology) => (
               <li>{technology}</li>
             ))}
           </ul>
           <ul className="links">
             <li>
-              <a href={projectObj.repository} rel="noreferrer" target="_blank">
+              <a href={projectData.repository} rel="noreferrer" target="_blank">
                 <span>Code </span>
                 <img src={githubLogo} alt="" />
               </a>
             </li>
             <li>
-              <a href={projectObj.live} rel="noreferrer" target="_blank">
+              <a href={projectData.live} rel="noreferrer" target="_blank">
                 <span>Ir a ver</span> <img src={newWindow} alt="" />
               </a>
             </li>
