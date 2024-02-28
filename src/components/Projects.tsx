@@ -1,6 +1,6 @@
 import React from "react";
 
-import projectsData from "../assets/projects/projects.json";
+import projectsData from "../assets/data/projects.json";
 import githubLogo from "../assets/links/github.svg";
 import newWindow from "../assets/newWindow.svg";
 import backgroundStroke from "../assets/strokes/background-stroke.png";
