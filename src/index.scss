@@ -424,6 +424,7 @@ header {
   .content {
     position: relative;
     .background-stroke {
+      max-width: 100%;
       position: absolute;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -457,9 +458,8 @@ header {
 
         .description,
         .thumbnail {
-          width: 20rem !important;
-          max-width: 20rem !important;
-          min-width: 20rem !important;
+          width: 20rem;
+
           background-color: $primary-color;
 
           box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
@@ -487,8 +487,7 @@ header {
         .description {
           padding: 1rem;
           z-index: 1;
-          flex: 1;
-          flex-basis: 0;
+
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -507,7 +506,7 @@ header {
             li {
               font-weight: 900;
               padding: 0.5rem;
-              // box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+
               font-size: 0.85rem;
               text-align: center;
             }
@@ -610,30 +609,6 @@ header {
   .burger-menu {
     display: flex !important;
   }
-
-  /*  #projects {
-    .subcontainer {
-      position: relative;
-      &::before {
-        position: absolute;
-        content: "";
-        height: 113%;
-        width: 130%;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        z-index: 0;
-        background-image: url("../src/assets/strokes/background-stroke.png");
-        background-size: 100% 100%;
-        filter: invert(34%) sepia(87%) saturate(7492%) hue-rotate(355deg)
-          brightness(85%) contrast($stroke-contrast);
-      }
-    }
-
-    .background-stroke {
-      display: none;
-    }
-  } */
 }
 @media screen and (min-width: 601px) {
   .sidebar,

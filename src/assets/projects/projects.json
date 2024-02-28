@@ -18,7 +18,7 @@
   {
     "name": "Dulce Tentacion Admin Dashboard",
     "description": "Desde aca se administra la API de Dulce Tentación, ademas de poder hacer todas las operaciones CRUD (create, read,update y delete), sirve para generar imágenes con la info de la base de datos, estas se usan en los estados de la empresa. Ademas de esto, planeo agregarle una sección donde pueda ver los clientes del ultimo ves, productos mas vendidos y otras estadísticas, todo usando whatsapp-web.js.",
-    "thumbnail": "/src/assets/projects/admin.svg",
+    "thumbnail": "/src/assets/projects/dulce-tentacion-admin.png",
     "technologies": ["ReactJS", "SCSS", "TypeScript"],
     "repository": "https://github.com/ae95caba/dulce-tentacion-admin",
     "live": "https://dulce-tentacion-admin.netlify.app/"
