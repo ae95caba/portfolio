@@ -36,34 +36,32 @@ interface Project {
 
 function ProjectCard({ projectData }: { projectData: Project }) {
   return (
-    <div className="subcontainer">
-      <div className="project-card">
-        <div className="thumbnail">
-          <img src={projectData.thumbnail} alt="" />
-        </div>
+    <div className="project-card">
+      <div className="thumbnail">
+        <img src={projectData.thumbnail} alt="" />
+      </div>
 
-        <div className="description">
-          <h3>{projectData.name}</h3>
-          <p>{projectData.description}</p>
-          <ul className="technologies">
-            {projectData.technologies.map((technology) => (
-              <li>{technology}</li>
-            ))}
-          </ul>
-          <ul className="links">
-            <li>
-              <a href={projectData.repository} rel="noreferrer" target="_blank">
-                <span>Code </span>
-                <img src={githubLogo} alt="" />
-              </a>
-            </li>
-            <li>
-              <a href={projectData.live} rel="noreferrer" target="_blank">
-                <span>Ir a ver</span> <img src={newWindow} alt="" />
-              </a>
-            </li>
-          </ul>
-        </div>
+      <div className="description">
+        <h3>{projectData.name}</h3>
+        <p>{projectData.description}</p>
+        <ul className="technologies">
+          {projectData.technologies.map((technology) => (
+            <li>{technology}</li>
+          ))}
+        </ul>
+        <ul className="links">
+          <li>
+            <a href={projectData.repository} rel="noreferrer" target="_blank">
+              <span>Code </span>
+              <img src={githubLogo} alt="" />
+            </a>
+          </li>
+          <li>
+            <a href={projectData.live} rel="noreferrer" target="_blank">
+              <span>Ir a ver</span> <img src={newWindow} alt="" />
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   );

@@ -5,15 +5,20 @@ $secondary-color: #ffffff;
 $cool-shadow: 0 0 5px rgba(0, 0, 0, 0.502);
 $third-color: #213547;
 $stroke-contrast: 66%;
-$universal-width: 700px;
+$universal-width: 800px;
+$section-padding: 0rem 1rem;
+$test-value: 1px;
 
 :root {
+  container-name: root;
+  container-type: inline-size;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   color-scheme: only light;
+  --test-value: 1px;
 }
 
 button {
@@ -65,7 +70,7 @@ a {
     & > .content {
       max-width: $universal-width;
       width: 100%;
-      padding: 0rem 1rem;
+      padding: $section-padding;
       display: flex;
       position: relative;
       flex-direction: column;
@@ -436,28 +441,34 @@ header {
     .container {
       display: flex;
       flex-direction: column;
-
+      align-items: center;
       gap: 4rem;
 
       .project-card {
-        z-index: 2;
-        position: relative;
         border-radius: 1rem;
-        box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        background-color: $primary-color;
+        z-index: 2;
 
-        padding: 1rem;
-        gap: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
         font-family: "Courier New", "Courier", monospace;
         align-items: center;
+
+        .description,
         .thumbnail {
-          box-shadow: $cool-shadow;
-          width: 100%;
+          width: 20rem !important;
+          max-width: 20rem !important;
+          min-width: 20rem !important;
+          background-color: $primary-color;
+
+          box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.5);
+          aspect-ratio: 1/1;
+        }
+
+        .thumbnail {
           position: relative;
 
-          aspect-ratio: 1/1;
           overflow: hidden;
 
           img {
@@ -468,13 +479,14 @@ header {
             left: 0%;
 
             &:hover {
-              transform: translateY(calc(-100% + 310px));
+              transform: translateY(calc(-100% + 320px));
             }
           }
         }
 
         .description {
-          padding-top: 1rem;
+          padding: 1rem;
+          z-index: 1;
           flex: 1;
           flex-basis: 0;
           display: flex;
@@ -599,7 +611,7 @@ header {
     display: flex !important;
   }
 
-  #projects {
+  /*  #projects {
     .subcontainer {
       position: relative;
       &::before {
@@ -621,11 +633,7 @@ header {
     .background-stroke {
       display: none;
     }
-    .project-card {
-      grid-template-columns: 1fr !important;
-      grid-template-rows: 1fr 1fr !important;
-    }
-  }
+  } */
 }
 @media screen and (min-width: 601px) {
   .sidebar,
