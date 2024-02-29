@@ -21,6 +21,7 @@ export default function Contact() {
         <h2>Contacto</h2>
         <h3>No seas tímido, mandame un mensaje!</h3>
         <form name="contact" method="POST">
+          <input type="hidden" name="form-name" value="contact" />
           <input placeholder="Nombre" type="text" name="name" value="nameee" />
           <input
             type="email"
