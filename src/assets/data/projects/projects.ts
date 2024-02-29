@@ -38,8 +38,8 @@ const RefrigeracionMariano = new Project(
   "Es una landing page para una agencia de arreglos de aires acondicionados, sirve como template para cualquier otro tipo de landing page simple. ",
   new URL("./refrigeracion-mariano.png", import.meta.url).href,
   ["Gatsby", "SCSS", "GraphQL"],
-  "https://github.com/ae95caba/portfolio",
-  "https://andreespinozadev.netlify.app/"
+  "https://github.com/ae95caba/refrigeracion-mariano2",
+  "https://refrigeracion-mariano.netlify.app/"
 );
 
 const DulceTentacionAdminDashboard = new Project(
