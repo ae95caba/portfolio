@@ -25,7 +25,7 @@ class Project {
 
 const DulceTentacionClient = new Project(
   "Dulce Tentacion Client",
-  "Es una pagina web para un local real, tiene varios usuarios semanales. La función principal es generar un recibo con toda la información de relevante, ahorrándole tiempo a local y a sus clientes.",
+  "Es una pagina web para un local real, tiene varios usuarios semanales. La función principal es generar un recibo con toda la información relevante, ahorrándole tiempo a local y a sus clientes.",
 
   new URL("./dulce-tentacion.png", import.meta.url).href,
   ["GatsbyJS", "SCSS", "Google Analytics"],
@@ -37,14 +37,14 @@ const RefrigeracionMariano = new Project(
   "Refrigeracion Mariano",
   "Es una landing page para una agencia de arreglos de aires acondicionados, sirve como template para cualquier otro tipo de landing page simple. ",
   new URL("./refrigeracion-mariano.png", import.meta.url).href,
-  ["Gatsby", "SCSS"],
+  ["Gatsby", "SCSS", "GraphQL"],
   "https://github.com/ae95caba/portfolio",
   "https://andreespinozadev.netlify.app/"
 );
 
 const DulceTentacionAdminDashboard = new Project(
   "Dulce Tentacion Admin Dashboard",
-  "Desde aca se administra la API de Dulce Tentacion, ademas de poder hacer todas las operaciones CRUD (create, read,update y delete), sirve para generar imágenes con la info de la base de datos, estas se usan en los estados de la empresa. Ademas de esto, planeo agregarle una sección donde pueda ver los clientes del ultimo ves, productos mas vendidos y otras estadísticas, todo usando whatsapp-web.js . ",
+  "Desde aca se administra la API de Dulce Tentacion, ademas de poder hacer todas las operaciones CRUD (create, read,update y delete), sirve para generar imágenes con la info de la base de datos, estas se usan en los estados de la empresa. Ademas de esto, planeo agregarle una sección donde pueda ver los clientes del ultimo mes, productos mas vendidos y otras estadísticas, todo usando whatsapp-web.js.",
   new URL("./dulce-tentacion-admin.png", import.meta.url).href,
   ["ReactJS", "SCSS", "TypeScript"],
   "https://github.com/ae95caba/dulce-tentacion-admin",

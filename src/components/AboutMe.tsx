@@ -32,7 +32,7 @@ export default function AboutMe() {
       <div className="background"></div>
       <div className="content">
         <h2>Sobre mi</h2>
-        <h3>Mi objetivo es hacer paginas que sean :</h3>
+        <h3>Mi objetivo es hacer paginas que sean:</h3>
         <div className="container">
           {goals.map((goal, index) => (
             <Reveal direction={index % 2 === 0 ? "left" : "right"}>
