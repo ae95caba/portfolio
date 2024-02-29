@@ -23,19 +23,10 @@ export default function Contact() {
         <form name="contact" method="POST">
           <input type="hidden" name="form-name" value="contact" />
           <input name="bot-field" hidden />
-          <input placeholder="Nombre" type="text" name="name" value="nameee" />
-          <input
-            type="email"
-            placeholder="Email"
-            name="email"
-            value="emaillll@gmail.com"
-          />
+          <input placeholder="Nombre" type="text" name="name" />
+          <input type="email" placeholder="Email" name="email" />
 
-          <textarea
-            placeholder="Mensaje"
-            name="message"
-            value="fsesssfase"
-          ></textarea>
+          <textarea placeholder="Mensaje" name="message"></textarea>
           <button type="submit">Enviar</button>
         </form>
       </div>
