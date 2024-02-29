@@ -22,6 +22,7 @@ export default function Contact() {
         <h3>No seas tímido, mandame un mensaje!</h3>
         <form name="contact" method="POST">
           <input type="hidden" name="form-name" value="contact" />
+          <input name="bot-field" hidden />
           <input placeholder="Nombre" type="text" name="name" value="nameee" />
           <input
             type="email"
