@@ -20,19 +20,12 @@ export default function Contact() {
         />
         <h2>Contacto</h2>
         <h3>No seas tímido, mandame un mensaje!</h3>
-        <form>
-          <input placeholder="Nombre" type="text" name="user_name" disabled />
-          <input type="email" placeholder="Email" name="user_email" disabled />
+        <form name="contact" data-netlify="true" method="POST">
+          <input placeholder="Nombre" type="text" name="user_name" />
+          <input type="email" placeholder="Email" name="user_email" />
 
-          <textarea placeholder="Mensaje" name="message" disabled></textarea>
-          <button
-            type="button"
-            onClick={() => {
-              alert("function still not added, try sending an email manually");
-            }}
-          >
-            Enviar
-          </button>
+          <textarea placeholder="Mensaje" name="message"></textarea>
+          <button type="submit">Enviar</button>
         </form>
       </div>
     </section>

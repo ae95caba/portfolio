@@ -1,6 +1,7 @@
 const skills = {
   Git: new URL("./git.svg", import.meta.url).href,
   CSS: new URL("./css.svg", import.meta.url).href,
+  GraphQL: new URL("./graphql.svg", import.meta.url).href,
   Express: new URL("./express.svg", import.meta.url).href,
   React: new URL("./react.svg", import.meta.url).href,
   Jest: new URL("./jest.svg", import.meta.url).href,
