@@ -15,13 +15,14 @@ export default function Hero() {
             <h1>Desarrollador Front End</h1>
             <img className="stroke" src={stroke} />
             <p>
-              Hola, soy Andre Espinoza Uso ReactJS con Gatsby y SCSS para el
-              Front y ExpressJS con Mongoose para el Back. Ademas tengo
-              conocimientos basicos de testing con Jest y UI/UX Bienvenidos a mi
-              pagina.
+              Hola, soy Andre Espinoza.
               <span>
                 <img src={wavingHand} alt="waving hand" />
               </span>
+              <br /> Utilizo ReactJS con Gatsby y SCSS para el Frontend,
+              mientras que para el Backend empleo ExpressJS con Mongoose.
+              Además, tengo conocimientos básicos de testing con Jest y UI/UX.
+              Bienvenidos a mi página.
             </p>
             <ul className="links">
               {Object.keys(links).map((service, index) => (

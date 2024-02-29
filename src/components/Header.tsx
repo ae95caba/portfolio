@@ -6,7 +6,7 @@ import animationData from "../assets/hambuger-menu.json";
 
 const tabs = [
   { href: "#hero", name: "Introducción" },
-  { href: "about", name: "Sobre mi" },
+  { href: "#about", name: "Sobre mi" },
   {
     href: "#projects",
     name: "Proyectos",
