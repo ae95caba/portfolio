@@ -21,10 +21,19 @@ export default function Contact() {
         <h2>Contacto</h2>
         <h3>No seas tímido, mandame un mensaje!</h3>
         <form name="contact" method="POST">
-          <input placeholder="Nombre" type="text" name="name" />
-          <input type="email" placeholder="Email" name="email" />
+          <input placeholder="Nombre" type="text" name="name" value="nameee" />
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            value="emaillll"
+          />
 
-          <textarea placeholder="Mensaje" name="message"></textarea>
+          <textarea
+            placeholder="Mensaje"
+            name="message"
+            value="fsesssfase"
+          ></textarea>
           <button type="submit">Enviar</button>
         </form>
       </div>
