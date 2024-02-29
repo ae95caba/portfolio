@@ -26,7 +26,7 @@ export default function Contact() {
             type="email"
             placeholder="Email"
             name="email"
-            value="emaillll"
+            value="emaillll@gmail.com"
           />
 
           <textarea
