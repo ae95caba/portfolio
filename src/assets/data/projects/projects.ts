@@ -60,9 +60,18 @@ const DulceTentacionAPI = new Project(
   "https://colossal-zorah-dasfg2t4gdfsgs.koyeb.app/"
 );
 
+const PrintGod = new Project(
+  "3D PRINT GOD",
+  "Es un proyecto front end echo con gatsby con un backend no-code. El reto fue el como optimizar las imagenes durante el build, tube que aprender conceptos avanzados de GraphQL y Gatsby para resolverlo y el resultado fue un catalogo con un rendimiento impecable",
+  new URL("./3dprintgod.png", import.meta.url).href,
+  ["Gatsby", "GraphQL", "SCSS"],
+  "https://github.com/ae95caba/3dprint",
+  "https://3dprintgod.netlify.app/"
+);
+
 const projectsArr = [
   DulceTentacionClient,
-
+  PrintGod,
   DulceTentacionAdminDashboard,
   DulceTentacionAPI,
   RefrigeracionMariano,

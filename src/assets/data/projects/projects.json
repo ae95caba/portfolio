@@ -30,5 +30,13 @@
     "technologies": ["ExpressJS", "Mongoose", "MongoDB Atlas"],
     "repository": "https://github.com/ae95caba/dulce-tentacion-api",
     "live": "https://colossal-zorah-dasfg2t4gdfsgs.koyeb.app/"
+  },
+  {
+    "name": "3D Print God",
+    "description": "Es un proyecto front end echo con gatsby con un backend no-code. El reto fue el como optimizar las imagenes durante el build, tube que aprender conceptos avanzados de GraphQl y Gatsby para resolverlo y el resultado fue un catalogo con un rendimiento impecable",
+    "thumbnail": "/images/3dprintgod.png",
+    "technologies": ["ExpressJS", "Mongoose", "MongoDB Atlas"],
+    "repository": "https://github.com/ae95caba/dulce-tentacion-api",
+    "live": "https://colossal-zorah-dasfg2t4gdfsgs.koyeb.app/"
   }
 ]
