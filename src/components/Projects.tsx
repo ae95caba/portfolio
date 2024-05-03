@@ -1,10 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import projectsData from "../assets/data/projects/projects";
 import githubLogo from "../assets/links/github.svg";
 import newWindow from "../assets/newWindow.svg";
 import backgroundStroke from "../assets/strokes/background-stroke.png";
+
 export default function Projects() {
+  const [projects, setProjects] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://api.sheety.co/a4086d3d6f9ed03996e1169108d1fd8e/portfolio/hoja1"
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const fetchedData = await response.json();
+        console.log(`feteched data is :${JSON.stringify(fetchedData.hoja1)}`);
+        setProjects(fetchedData.hoja1);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <section id="projects">
       <div className="background"></div>
@@ -14,11 +41,13 @@ export default function Projects() {
 
         <h2>Portfolio</h2>
         <h3>Estos son algunos de mis mejores projectos </h3>
-        <div className="container">
-          {projectsData.map((projectData) => {
-            return <ProjectCard projectData={projectData} />;
-          })}
-        </div>
+        {!loading && (
+          <div className="container">
+            {projects.map((project) => {
+              return <ProjectCard projectData={project} />;
+            })}
+          </div>
+        )}
       </div>
     </section>
   );
@@ -31,7 +60,7 @@ interface Project {
   thumbnail: string;
   repository: string;
   live: string;
-  technologies: Array<string>;
+  technologies: string;
 }
 
 function ProjectCard({ projectData }: { projectData: Project }) {
@@ -45,7 +74,7 @@ function ProjectCard({ projectData }: { projectData: Project }) {
         <h3>{projectData.name}</h3>
         <p>{projectData.description}</p>
         <ul className="technologies">
-          {projectData.technologies.map((technology) => (
+          {projectData.technologies.split(",").map((technology) => (
             <li>{technology}</li>
           ))}
         </ul>
